@@ -1,0 +1,14 @@
+node_modules/
+.next/
+out/
+dist/
+.vercel/
+
+.env*.local
+.dev.vars
+
+*.tsbuildinfo
+*.pem
+.DS_Store
+.vscode/
+.idea/
