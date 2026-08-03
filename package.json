@@ -7,10 +7,9 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "env:encrypt": "./scripts/secrets.sh encrypt",
-    "env:decrypt": "./scripts/secrets.sh decrypt"
+    "env:encrypt": "./sops-reencrypt.sh",
+    "env:decrypt": "./sops-reencrypt.sh --decrypt"
   },
   "dependencies": {
     "next": "^15.2.0",

@@ -26,8 +26,10 @@ npm run env:decrypt   # .env -> .env.local
 npm run env:encrypt   # .env.local -> .env
 ```
 
+The repository follows the same age recipient and `sops-reencrypt.sh` workflow as the other Elixpo properties. Never edit encrypted values by hand or commit `.env.local`.
+
 Server secrets are accessed through `requireServerEnv` in `lib/env.ts`, which fails clearly when a required value is absent. Only `NEXT_PUBLIC_*` values may be imported into client code.
 
 ## Current scope
 
-This kick-start includes the public landing page, responsive navigation, workspace preview, SEO routes, environment contract, and SOPS workflow. The next implementation slice is Elixpo identity plus GitHub App onboarding.
+This kick-start includes the public landing page, responsive navigation, role-aware host panel, contest-creation foundation, domain contracts, SEO routes, environment contract, and SOPS workflow. The next implementation slice is Elixpo identity plus GitHub App onboarding.

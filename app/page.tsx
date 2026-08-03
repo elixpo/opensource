@@ -7,7 +7,7 @@ import { Navbar } from '@/components/navbar';
 const features = [
   { icon: <GitBranch />, title: 'GitHub-native programs', body: 'Connect an organization or select repositories. Issues, labels, PRs, reviews, and merges stay in sync.' },
   { icon: <Trophy />, title: 'Fair gamification', body: 'Configurable points, badges, streaks, and leaderboards backed by an append-only ledger.' },
-  { icon: <Users />, title: 'Mentor operations', body: 'Review queues, mentee check-ins, bonus awards, and activity history in one focused workspace.' },
+  { icon: <Users />, title: 'Every role included', body: 'Invite co-hosts, project admins, mentors, campus ambassadors, and contributors with contest-scoped access.' },
   { icon: <Chart />, title: 'Program intelligence', body: 'See contributor funnels, issue turnaround, retention, and prize-pool health without a spreadsheet.' },
   { icon: <Shield />, title: 'Audit-ready by default', body: 'Every override, approval, label change, and payout decision records its actor and reason.' },
   { icon: <Check />, title: 'Managed essentials', body: 'Elixpo identity, notifications, and payout rails work together, so organizers can focus on community.' },
@@ -28,8 +28,8 @@ export default function Home() {
         <div className="shell text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent-soft px-3 py-1.5 text-[11px] font-bold uppercase tracking-[.09em] text-accent"><span className="h-1.5 w-1.5 rounded-full bg-accent" />Built for open-source operators</div>
           <h1 className="mx-auto mt-7 max-w-5xl text-[clamp(2.8rem,7vw,6.3rem)] font-black leading-[.94] tracking-[-.055em]">Run open source.<br /><span className="font-bold italic text-[#888]">Skip the busywork.</span></h1>
-          <p className="mx-auto mt-7 max-w-2xl text-[1.05rem] leading-7 text-[#555] md:text-lg">Bring your GitHub organization or repositories. Elixpo handles program dashboards, mentors, leaderboards, audit trails, and payouts.</p>
-          <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row"><Link href="/dashboard" className="button-primary">Explore the workspace <Arrow /></Link><a href="#workflow" className="button-secondary">See how it works</a></div>
+          <p className="mx-auto mt-7 max-w-2xl text-[1.05rem] leading-7 text-[#555] md:text-lg">Launch a complete 1–2 month open-source contest with Elixpo Login, GitHub tracking, co-hosts, project admins, mentors, campus ambassadors, contributors, leaderboards, and payouts.</p>
+          <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row"><Link href="/host" className="button-primary">Open the host panel <Arrow /></Link><Link href="/host/contests/new" className="button-secondary">Create a contest</Link></div>
           <p className="mt-4 font-mono text-[10px] uppercase tracking-wider text-[#999]">Competitions · mentorship · bounties · sustained initiatives</p>
           <div className="mx-auto mt-16 max-w-5xl"><DashboardPreview /></div>
         </div>

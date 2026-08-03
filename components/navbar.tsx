@@ -5,7 +5,7 @@ import { Logo } from './logo';
 const links = [
   { href: '#platform', label: 'Platform' },
   { href: '#workflow', label: 'How it works' },
-  { href: '/dashboard', label: 'Dashboard' },
+  { href: '/host', label: 'Host panel' },
 ];
 
 export function Navbar() {
@@ -17,7 +17,7 @@ export function Navbar() {
           {links.map((link) => <Link key={link.href} href={link.href} className="rounded-lg px-3 py-2 text-sm text-[#555] no-underline transition hover:bg-[#f6f6f6] hover:text-ink">{link.label}</Link>)}
         </nav>
         <a href={publicEnv.githubRepository} target="_blank" rel="noreferrer" className="hidden rounded-lg border border-[var(--line)] px-3 py-2 text-sm font-medium text-[#555] no-underline hover:border-[#bbb] sm:block">GitHub</a>
-        <a href={`${publicEnv.accountsUrl}/login?continue=${encodeURIComponent(publicEnv.appUrl)}`} className="rounded-full bg-accent px-4 py-2 text-sm font-bold text-white no-underline transition hover:bg-accent-deep">Sign in</a>
+        <a href={`${publicEnv.accountsUrl}/login?continue=${encodeURIComponent(`${publicEnv.appUrl}/host`)}`} className="rounded-full bg-accent px-4 py-2 text-sm font-bold text-white no-underline transition hover:bg-accent-deep">Start a contest</a>
       </div>
     </header>
   );
