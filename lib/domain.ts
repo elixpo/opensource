@@ -8,7 +8,7 @@ export const contestRoles = [
 ] as const;
 
 export type ContestRole = (typeof contestRoles)[number];
-export type ContestStatus = 'draft' | 'applications_open' | 'active' | 'review' | 'completed';
+export type ContestStatus = 'draft' | 'applications_open' | 'active' | 'review' | 'completed' | 'archived';
 
 export interface Contest {
   id: string;

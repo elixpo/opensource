@@ -3,6 +3,8 @@ node_modules/
 out/
 dist/
 .vercel/
+.open-next/
+.wrangler/
 .env.local
 .dev.vars
 *.tsbuildinfo

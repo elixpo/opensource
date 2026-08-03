@@ -8,24 +8,39 @@
     "build": "next build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
+    "cf:build": "CLOUDFLARE_LOAD_DEV_VARS_FROM_DOT_ENV=false opennextjs-cloudflare build",
+    "cf:preview": "CLOUDFLARE_LOAD_DEV_VARS_FROM_DOT_ENV=false opennextjs-cloudflare build && CLOUDFLARE_LOAD_DEV_VARS_FROM_DOT_ENV=false opennextjs-cloudflare preview",
+    "cf:deploy": "CLOUDFLARE_LOAD_DEV_VARS_FROM_DOT_ENV=false opennextjs-cloudflare build && CLOUDFLARE_LOAD_DEV_VARS_FROM_DOT_ENV=false opennextjs-cloudflare deploy",
+    "cf:typegen": "CLOUDFLARE_LOAD_DEV_VARS_FROM_DOT_ENV=false wrangler types --include-runtime false --env-interface CloudflareEnv cloudflare-env.d.ts && node scripts/normalize-cloudflare-types.mjs",
+    "db:migrate:local": "CLOUDFLARE_LOAD_DEV_VARS_FROM_DOT_ENV=false wrangler d1 migrations apply opensource-elixpo --local",
+    "db:migrate:remote": "CLOUDFLARE_LOAD_DEV_VARS_FROM_DOT_ENV=false wrangler d1 migrations apply opensource-elixpo --remote",
+    "db:migrations:list:local": "CLOUDFLARE_LOAD_DEV_VARS_FROM_DOT_ENV=false wrangler d1 migrations list opensource-elixpo --local",
+    "db:migrations:list:remote": "CLOUDFLARE_LOAD_DEV_VARS_FROM_DOT_ENV=false wrangler d1 migrations list opensource-elixpo --remote",
     "env:encrypt": "./sops-reencrypt.sh",
     "env:decrypt": "./sops-reencrypt.sh --decrypt"
   },
   "dependencies": {
+    "@opennextjs/cloudflare": "latest",
     "next": "^15.2.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "latest",
     "@types/node": "^20.17.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "autoprefixer": "^10.4.20",
-    "postcss": "^8.5.0",
+    "postcss": "8.5.25",
     "tailwindcss": "^3.4.17",
-    "typescript": "^5.7.0"
+    "typescript": "^5.7.0",
+    "wrangler": "latest"
   },
   "engines": {
     "node": ">=20.0.0"
+  },
+  "overrides": {
+    "postcss": "$postcss",
+    "sharp": "0.35.3"
   }
 }
