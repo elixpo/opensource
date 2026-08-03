@@ -3,10 +3,8 @@ node_modules/
 out/
 dist/
 .vercel/
-
-.env*.local
+.env.local
 .dev.vars
-
 *.tsbuildinfo
 *.pem
 .DS_Store
