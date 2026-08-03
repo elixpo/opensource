@@ -3,6 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "description": "The Elixpo platform for running open-source programs, competitions, mentorship, and rewards.",
+  "author": "Elixpo <hello@elixpo.com> (https://elixpo.com)",
+  "license": "SEE LICENSE IN LICENSE",
+  "homepage": "https://opensource.elixpo.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/elixpo/opensource"
+  },
+  "keywords": [
+    "open-source",
+    "contest-platform",
+    "github",
+    "mentorship",
+    "cloudflare-workers",
+    "cloudflare-d1",
+    "elixpo"
+  ],
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",

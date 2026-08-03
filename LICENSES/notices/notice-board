@@ -1,0 +1,30 @@
+THIRD-PARTY NOTICES
+===================
+
+This repository depends on third-party components, each distributed under its
+own license. The application code in this repository is licensed under the
+Elixpo standard (MIT for code, CC-BY-4.0 for assets); see ../../LICENSE.
+
+Primary runtime dependencies (see package.json for authoritative versions):
+
+  * Next.js, React, React DOM             - MIT
+  * @opennextjs/cloudflare                - MIT
+
+Cloudflare runtime and deployment tooling:
+
+  * wrangler                              - MIT OR Apache-2.0
+  * @cloudflare/workers-types             - MIT OR Apache-2.0
+  * Cloudflare Workers, D1, and KV         - hosted platform services
+
+Build and frontend tooling:
+
+  * Tailwind CSS                          - MIT
+  * PostCSS, Autoprefixer                 - MIT
+  * TypeScript                            - Apache-2.0
+
+Fonts:
+
+  * Geist and Geist Mono, loaded through next/font - SIL Open Font License 1.1
+
+If you believe a component or attribution is missing from this list, please
+open an issue or email hello@elixpo.com.
