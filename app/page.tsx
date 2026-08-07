@@ -39,10 +39,44 @@ export default function Home() {
 
       <section id="platform" className="shell py-24 md:py-32">
         <p className="eyebrow">One operating system</p><div className="mt-3 grid gap-5 md:grid-cols-2"><h2 className="text-4xl font-black tracking-[-.04em] md:text-5xl">From first issue<br />to final payout.</h2><p className="max-w-xl text-base leading-7 text-[#666]">A shared source of truth for organizers, maintainers, mentors, and contributors—while GitHub remains where the code gets built.</p></div>
-        <div className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-[var(--line)] bg-[var(--line)] md:grid-cols-2 lg:grid-cols-3">{features.map((feature, index) => <article key={feature.title} className="bg-white p-7 transition hover:bg-[#fdfdfd]"><div className="flex items-center justify-between"><span className="grid h-10 w-10 place-items-center rounded-xl bg-accent-soft text-accent">{feature.icon}</span><span className="font-mono text-[10px] text-[#bbb]">0{index + 1}</span></div><h3 className="mt-8 text-lg font-extrabold">{feature.title}</h3><p className="mt-3 text-sm leading-6 text-[#666]">{feature.body}</p></article>)}</div>
+        <div className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-[var(--line)] bg-[var(--line)] md:grid-cols-2 lg:grid-cols-3">
+          {features.map((feature, index) => (
+            <article key={feature.title} className="bg-white dark:bg-neutral-900 p-7 transition hover:bg-[#fdfdfd] dark:hover:bg-[#1a1a1a]">
+              <div className="flex items-center justify-between">
+                <span className="grid h-10 w-10 place-items-center rounded-xl bg-accent-soft dark:bg-accent/10 text-accent">{feature.icon}</span>
+                <span className="font-mono text-[10px] text-[#bbb] dark:text-neutral-500">0{index + 1}</span>
+              </div>
+              <h3 className="mt-8 text-lg font-extrabold text-ink dark:text-neutral-100">{feature.title}</h3>
+              <p className="mt-3 text-sm leading-6 text-[#666] dark:text-neutral-400">{feature.body}</p>
+            </article>
+          ))}
+        </div>
       </section>
 
-      <section id="workflow" className="bg-[#151515] py-24 text-white md:py-32"><div className="shell"><p className="eyebrow">Simple by design</p><h2 className="mt-3 max-w-2xl text-4xl font-black tracking-[-.04em] md:text-5xl">Your next program,<br /><span className="italic text-white/45">live in minutes.</span></h2><div className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 md:grid-cols-3">{steps.map(([number, title, body]) => <article key={number} className="bg-[#151515] p-7 md:p-9"><span className="font-mono text-xs font-bold text-accent">{number}</span><h3 className="mt-14 text-xl font-bold">{title}</h3><p className="mt-3 text-sm leading-6 text-white/50">{body}</p></article>)}</div><div className="mt-12 flex flex-col items-start justify-between gap-6 rounded-2xl bg-white p-7 text-ink md:flex-row md:items-center md:p-10"><div><p className="eyebrow">Phase zero</p><h3 className="mt-2 text-2xl font-black tracking-tight">The foundation is being built in public.</h3></div><a href="https://github.com/elixpo/opensource" className="button-primary">Follow development <Arrow /></a></div></div></section>
+      <section id="workflow" className="bg-[#151515] py-24 text-white md:py-32">
+        <div className="shell">
+          <p className="eyebrow">Simple by design</p>
+          <h2 className="mt-3 max-w-2xl text-4xl font-black tracking-[-.04em] md:text-5xl">
+            Your next program,<br /><span className="italic text-white/45">live in minutes.</span>
+          </h2>
+          <div className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 md:grid-cols-3">
+            {steps.map(([number, title, body]) => (
+              <article key={number} className="bg-[#151515] p-7 md:p-9">
+                <span className="font-mono text-xs font-bold text-accent">{number}</span>
+                <h3 className="mt-14 text-xl font-bold">{title}</h3>
+                <p className="mt-3 text-sm leading-6 text-white/50">{body}</p>
+              </article>
+            ))}
+          </div>
+          <div className="mt-12 flex flex-col items-start justify-between gap-6 rounded-2xl bg-white dark:bg-neutral-900 p-7 text-ink dark:text-neutral-100 md:flex-row md:items-center md:p-10">
+            <div>
+              <p className="eyebrow">Phase zero</p>
+              <h3 className="mt-2 text-2xl font-black tracking-tight text-ink dark:text-neutral-100">The foundation is being built in public.</h3>
+            </div>
+            <a href="https://github.com/elixpo/opensource" className="button-primary">Follow development <Arrow /></a>
+          </div>
+        </div>
+      </section>
       <Footer />
     </main>
   );
