@@ -1,14 +1,14 @@
-node_modules/
-.next/
-out/
-dist/
-.vercel/
-.open-next/
-.wrangler/
-.env.local
-.dev.vars
-*.tsbuildinfo
-*.pem
 .DS_Store
-.vscode/
-.idea/
+.env
+node_modules/
+*.tsbuildinfo
+
+# React Router
+/.react-router/
+/build/
+
+# Cloudflare
+.mf
+.wrangler
+.dev.vars*
+worker-configuration.d.ts

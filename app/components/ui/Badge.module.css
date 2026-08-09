@@ -1,0 +1,33 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-sans);
+  font-weight: var(--font-weight-semibold);
+  font-size: 0.65rem; /* ~10px */
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  padding: 0;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.label {
+  background-color: var(--bg-elevated);
+  color: var(--text-primary);
+  padding: 0.25em 0.5em;
+  border-right: 1px solid var(--border-subtle);
+}
+
+.value {
+  padding: 0.25em 0.5em;
+  color: var(--text-inverse);
+}
+
+/* Accents for the value section */
+.edge .value { background-color: var(--accent-edge); }
+.data .value { background-color: var(--accent-data); }
+.flag .value { background-color: var(--accent-flag); }
+.solo .value { background-color: var(--accent-solo); }
+.ops .value { background-color: var(--accent-ops); }
+.neutral .value { background-color: var(--border-subtle); color: var(--text-primary); }
