@@ -14,7 +14,7 @@ export default function CodeOfConduct() {
               Code of Conduct.
             </h1>
             <p className="mt-4 text-xs font-mono text-[#777]">Last updated: August 2026</p>
-            
+
             <div className="mt-10 prose prose-slate max-w-none text-sm leading-7 text-[#444] flex flex-col gap-6">
               <p>
                 Elixpo Open Source is committed to providing a welcoming, safe, and inclusive environment for everyone who participates, regardless of their background, identity, gender, level of experience, or ethnicity.

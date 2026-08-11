@@ -7,8 +7,8 @@ import { publicEnv } from '@/lib/env';
 import { Logo } from './logo';
 
 const navLinks = [
-  { href: '/projects', label: 'Projects' },
-  { href: '/leaderboard', label: 'Leaderboard' },
+  { href: '/contests/opencode-summer-2026/projects', label: 'Projects' },
+  { href: '/contests/opencode-summer-2026/leaderboard', label: 'Leaderboard' },
   { href: '/events', label: 'Events' },
   { href: '/community', label: 'Community' },
   { href: '/blog', label: 'Blog' },
@@ -34,14 +34,14 @@ export function Navbar() {
   const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
   const [notificationsOpen, setNotificationsOpen] = useState(false);
   const [avatarMenuOpen, setAvatarMenuOpen] = useState(false);
-  
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+
+  const isLoggedIn = false;
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
-  
+
   const dropdownRef = useRef<HTMLDivElement>(null);
   const notifRef = useRef<HTMLDivElement>(null);
   const avatarRef = useRef<HTMLDivElement>(null);
-  
+
   const pathname = usePathname();
   const router = useRouter();
 
@@ -57,20 +57,15 @@ export function Navbar() {
     } else {
       localStorage.setItem('theme', 'light');
     }
-
-    const savedAuth = localStorage.getItem('isLoggedIn');
-    if (savedAuth !== null) {
-      setIsLoggedIn(savedAuth === 'true');
-    }
   }, []);
 
   const toggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
     setTheme(newTheme);
     localStorage.setItem('theme', newTheme);
-    
+
     console.log(`Theme preference (${newTheme}) successfully saved to Ayushman's profile settings.`);
-    
+
     if (newTheme === 'dark') {
       document.documentElement.classList.add('dark');
     } else {
@@ -79,7 +74,6 @@ export function Navbar() {
   };
 
   const handleLogout = () => {
-    setIsLoggedIn(false);
     localStorage.setItem('isLoggedIn', 'false');
     setAvatarMenuOpen(false);
     console.log("Logged out successfully.");
@@ -264,7 +258,7 @@ export function Navbar() {
                     <div className="my-1 border-t border-[var(--line)] dark:border-neutral-800" />
                     <div className="flex flex-col gap-0.5">
                       <Link
-                        href="/profile/ayushman"
+                        href="/u/ayushman"
                         className="flex items-center gap-2 rounded-lg px-3 py-2 text-left text-xs font-semibold text-ink dark:text-neutral-300 no-underline hover:bg-[#f6f6f6] dark:hover:bg-neutral-900 transition"
                       >
                         <svg className="h-3.5 w-3.5 text-[#555] dark:text-neutral-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -282,7 +276,7 @@ export function Navbar() {
                         Dashboard
                       </Link>
                       <Link
-                        href="/wallet"
+                        href="/dashboard/rewards"
                         className="flex items-center gap-2 rounded-lg px-3 py-2 text-left text-xs font-semibold text-ink dark:text-neutral-300 no-underline hover:bg-[#f6f6f6] dark:hover:bg-neutral-900 transition"
                       >
                         <svg className="h-3.5 w-3.5 text-[#555] dark:text-neutral-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -387,7 +381,7 @@ export function Navbar() {
               Login
             </Link>
           )}
-          
+
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="rounded-lg p-2 text-[#555] hover:bg-[#f6f6f6] hover:text-ink dark:text-neutral-400 dark:hover:bg-neutral-900 dark:hover:text-white transition"
@@ -462,7 +456,7 @@ export function Navbar() {
             {isLoggedIn ? (
               <div className="flex flex-col gap-1.5">
                 <Link
-                  href="/profile/ayushman"
+                  href="/u/ayushman"
                   className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-base no-underline text-[#555] dark:text-neutral-400 hover:bg-[#f6f6f6] dark:hover:bg-neutral-900"
                 >
                   <svg className="h-4 w-4 text-[#555] dark:text-neutral-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -480,7 +474,7 @@ export function Navbar() {
                   Dashboard
                 </Link>
                 <Link
-                  href="/wallet"
+                  href="/dashboard/rewards"
                   className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-base no-underline text-[#555] dark:text-neutral-400 hover:bg-[#f6f6f6] dark:hover:bg-neutral-900"
                 >
                   <svg className="h-4 w-4 text-[#555] dark:text-neutral-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">

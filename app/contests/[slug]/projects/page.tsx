@@ -37,7 +37,9 @@ const projects = [
   },
 ];
 
-export default function Projects() {
+export default async function Projects({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+
   return (
     <main className="min-h-screen flex flex-col justify-between">
       <div>
@@ -45,12 +47,12 @@ export default function Projects() {
         <section className="relative overflow-hidden py-16 md:py-24">
           <div className="hero-grid absolute inset-0 -z-10" />
           <div className="shell">
-            <p className="eyebrow">Projects directory</p>
+            <p className="eyebrow">Contest: {slug}</p>
             <h1 className="mt-4 text-4xl font-black tracking-[-.04em] md:text-6xl max-w-2xl">
               Discover and contribute.
             </h1>
             <p className="mt-5 max-w-xl text-base leading-7 text-[#666]">
-              Explore active repositories within the Elixpo ecosystem. Claim open issues, submit pull requests, and build your open-source profile.
+              Explore active repositories within the Elixpo ecosystem for the {slug} contest. Claim open issues, submit pull requests, and build your open-source profile.
             </p>
 
             <div className="mt-12 grid gap-6 md:grid-cols-2">

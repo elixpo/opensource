@@ -2,14 +2,16 @@ import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
 
 const leaders = [
-  { rank: 1, name: 'Alex Rivera', handle: 'arivera', points: 2850, prs: 34, streak: 12, badge: '🥇 Elite Contributor' },
-  { rank: 2, name: 'Sofia Chen', handle: 'schen_dev', points: 2420, prs: 29, streak: 8, badge: '🥈 Bug Hunter' },
-  { rank: 3, name: 'Marcus Vance', handle: 'mvance', points: 1980, prs: 22, streak: 5, badge: '🥉 Speedrunner' },
+  { rank: 1, name: 'Alex Rivera', handle: 'arivera', points: 2850, prs: 34, streak: 12, badge: 'Elite Contributor' },
+  { rank: 2, name: 'Sofia Chen', handle: 'schen_dev', points: 2420, prs: 29, streak: 8, badge: 'Bug Hunter' },
+  { rank: 3, name: 'Marcus Vance', handle: 'mvance', points: 1980, prs: 22, streak: 5, badge: 'Speedrunner' },
   { rank: 4, name: 'Elena Rostova', handle: 'elena_r', points: 1750, prs: 18, streak: 0, badge: 'Documentation Hero' },
   { rank: 5, name: 'Kenji Sato', handle: 'sato_k', points: 1540, prs: 15, streak: 3, badge: 'Review Guru' },
 ];
 
-export default function Leaderboard() {
+export default async function Leaderboard({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+
   return (
     <main className="min-h-screen flex flex-col justify-between">
       <div>
@@ -17,12 +19,12 @@ export default function Leaderboard() {
         <section className="relative overflow-hidden py-16 md:py-24">
           <div className="hero-grid absolute inset-0 -z-10" />
           <div className="shell">
-            <p className="eyebrow">Gamification</p>
+            <p className="eyebrow">Contest: {slug}</p>
             <h1 className="mt-4 text-4xl font-black tracking-[-.04em] md:text-6xl max-w-2xl">
               Top Contributors.
             </h1>
             <p className="mt-5 max-w-xl text-base leading-7 text-[#666]">
-              Real-time activity points accrued from merged pull requests, reviewed issues, and community contributions. Backed by an append-only ledger.
+              Real-time activity points accrued from merged pull requests, reviewed issues, and community contributions for the {slug} contest. Backed by an append-only ledger.
             </p>
 
             <div className="mt-12 overflow-x-auto rounded-2xl border border-[var(--line)] bg-white shadow-card">
@@ -57,7 +59,7 @@ export default function Leaderboard() {
                       </td>
                       <td className="p-4 text-right font-mono font-medium">{leader.prs}</td>
                       <td className="p-4 text-right font-mono text-xs text-[#555]">
-                        {leader.streak > 0 ? `${leader.streak} days 🔥` : '—'}
+                        {leader.streak > 0 ? `${leader.streak} days` : '—'}
                       </td>
                       <td className="p-4">
                         <span className="inline-flex rounded-full bg-[#f0f0f0] px-2.5 py-0.5 text-xs text-[#444] font-medium">

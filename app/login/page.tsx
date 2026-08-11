@@ -1,19 +1,15 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
 
 export default function Login() {
-  const router = useRouter();
+  const [showPlaceholderMsg, setShowPlaceholderMsg] = useState(false);
 
   const handleSimulatedLogin = () => {
-    localStorage.setItem('isLoggedIn', 'true');
-    console.log("Simulated login successful.");
-    router.push('/dashboard');
-    setTimeout(() => {
-      window.location.reload();
-    }, 100);
+    setShowPlaceholderMsg(true);
+    setTimeout(() => setShowPlaceholderMsg(false), 5000);
   };
 
   return (
@@ -42,18 +38,11 @@ export default function Login() {
                 Sign In with GitHub
               </button>
 
-              <div className="flex items-center my-2 text-xs font-mono text-[#aaa]">
-                <span className="flex-1 h-px bg-[var(--line)] dark:bg-neutral-800" />
-                <span className="px-3">OR SIMULATE</span>
-                <span className="flex-1 h-px bg-[var(--line)] dark:bg-neutral-800" />
-              </div>
-
-              <button
-                onClick={handleSimulatedLogin}
-                className="button-secondary w-full"
-              >
-                Log in as Ayushman (Mock)
-              </button>
+              {showPlaceholderMsg && (
+                <div className="bg-neutral-50 dark:bg-neutral-900 border border-[var(--line)] dark:border-neutral-800 rounded-lg p-3 text-xs text-[#555] dark:text-neutral-400">
+                  ⚠️ Elixpo login/session integration is in placeholder mode and does not grant authentication.
+                </div>
+              )}
             </div>
           </div>
         </section>
