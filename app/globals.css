@@ -3,13 +3,14 @@
 @tailwind utilities;
 
 :root {
-  --ink: #111111;
-  --ink-soft: #555555;
-  --ink-faint: #858585;
-  --line: #e8e8e8;
+  --ink: #f9f5f0;
+  --ink-soft: #aaaaaa;
+  --ink-faint: #666666;
+  --line: #2a2a2a;
   --accent: #e53935;
   --accent-deep: #c62828;
-  --cream: #f9f5f0;
+  --canvas: #0a0a0a;
+  --panel: #151515;
 }
 
 * { box-sizing: border-box; }
@@ -18,19 +19,21 @@ body {
   margin: 0;
   min-height: 100vh;
   overflow-x: hidden;
-  background: #fff;
+  background: var(--canvas);
   color: var(--ink);
   font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 a { color: inherit; }
-::selection { background: rgba(229, 57, 53, .18); }
+::selection { background: rgba(229, 57, 53, .25); }
 
 @layer components {
   .shell { @apply mx-auto w-full max-w-[1240px] px-5 md:px-8; }
   .eyebrow { @apply font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-accent; }
-  .button-primary { @apply inline-flex items-center justify-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-bold text-white no-underline transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#303030]; }
-  .button-secondary { @apply inline-flex items-center justify-center gap-2 rounded-full border border-[#d7d7d7] bg-white px-5 py-3 text-sm font-bold no-underline transition-all duration-200 hover:-translate-y-0.5 hover:border-[#aaa]; }
-  .surface { @apply rounded-2xl border border-[var(--line)] bg-white shadow-card; }
+  .button-primary { @apply inline-flex items-center justify-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-bold text-canvas no-underline transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#e0dcd7]; }
+  .button-secondary { @apply inline-flex items-center justify-center gap-2 rounded-full border border-line bg-panel px-5 py-3 text-sm font-bold no-underline transition-all duration-200 hover:-translate-y-0.5 hover:border-[#444] hover:bg-[#1a1a1a]; }
+  .surface { @apply rounded-2xl border border-[var(--line)] bg-[var(--panel)] shadow-card; }
 }
 
 .hero-grid {
