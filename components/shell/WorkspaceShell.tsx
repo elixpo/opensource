@@ -12,10 +12,10 @@ export function WorkspaceShell({
   currentRole?: string 
 }) {
   return (
-    <div className="flex min-h-screen flex-col bg-canvas text-ink">
+    <div className="flex min-h-screen flex-col bg-bg text-text-bright">
       <GlobalNav userRoles={userRoles} currentRole={currentRole} />
       
-      <main className="flex-1">
+      <main className="flex-1" role="main">
         <div className="shell py-6">
           <div className="mb-6">
             <Breadcrumbs />
@@ -24,8 +24,8 @@ export function WorkspaceShell({
         </div>
       </main>
       
-      <footer className="border-t border-line py-8">
-        <div className="shell text-sm text-ink-soft flex items-center justify-between">
+      <footer className="border-t border-muted/20 py-8" role="contentinfo">
+        <div className="shell text-sm text-muted flex items-center justify-between">
           <p>© {new Date().getFullYear()} Elixpo Open Source.</p>
         </div>
       </footer>

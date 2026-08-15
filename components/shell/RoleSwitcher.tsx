@@ -1,8 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+
 import { cn } from '@/lib/utils';
 
 export function RoleSwitcher({ roles, currentRole }: { roles: string[], currentRole: string }) {
@@ -11,7 +10,7 @@ export function RoleSwitcher({ roles, currentRole }: { roles: string[], currentR
   return (
     <div className="relative">
       <button 
-        className="flex items-center gap-2 rounded-md border border-line bg-panel px-3 py-1.5 text-sm font-medium text-ink transition-colors hover:bg-line"
+        className="flex items-center gap-2 rounded-md border border-muted/20 bg-card px-3 py-1.5 text-sm font-medium text-text-bright transition-colors hover:bg-muted/10"
         onClick={() => setOpen(!open)}
       >
         <span className="capitalize">{currentRole}</span>
@@ -19,14 +18,14 @@ export function RoleSwitcher({ roles, currentRole }: { roles: string[], currentR
       </button>
 
       {open && (
-        <div className="absolute left-0 mt-1 w-48 rounded-md border border-line bg-panel p-1 shadow-card z-50">
-          <div className="px-2 py-1.5 text-xs font-semibold text-ink-faint uppercase tracking-wider">Switch Role</div>
+        <div className="absolute left-0 mt-1 w-48 rounded-md border border-muted/20 bg-card p-1 shadow-card z-50">
+          <div className="px-2 py-1.5 text-xs font-semibold text-muted uppercase tracking-wider">Switch Role</div>
           {roles.map(role => (
             <button
               key={role}
               className={cn(
-                "w-full rounded-sm px-2 py-1.5 text-left text-sm transition-colors hover:bg-line capitalize",
-                role === currentRole ? "bg-accent/10 text-accent font-medium" : "text-ink"
+                "w-full rounded-sm px-2 py-1.5 text-left text-sm transition-colors hover:bg-muted/10 capitalize",
+                role === currentRole ? "bg-primary/10 text-primary font-medium" : "text-text-bright"
               )}
               onClick={() => {
                 // Mock implementation for UI states phase

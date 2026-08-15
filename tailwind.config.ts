@@ -5,21 +5,17 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: '#f9f5f0', // Warm off-white text
-        'ink-faint': '#888888',
-        canvas: '#0a0a0a', // Dark background
-        panel: '#151515', // Slightly lighter for cards
-        line: '#2a2a2a', // Borders
-        accent: {
-          DEFAULT: '#e53935',
-          deep: '#c62828',
-          soft: 'rgba(229, 57, 53, 0.15)',
-        },
-        gold: '#fbbf24',
-        amber: '#f59e0b',
-        teal: '#14b8a6',
-        green: '#10b981',
-        red: '#ef4444',
+        bg: '#FFF8EB',
+        card: '#FFF0D2',
+        primary: '#FF5D68',
+        teal: '#00B4A5',
+        gold: '#FFBE1E',
+        orange: '#FF8C1E',
+        purple: '#B450DC',
+        green: '#3CC864',
+        'text-bright': '#262630',
+        muted: '#A07864',
+        'status-bg': '#FF5D68',
       },
       fontFamily: {
         sans: ['var(--font-geist-sans)', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],

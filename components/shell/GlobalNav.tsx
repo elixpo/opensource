@@ -7,7 +7,7 @@ import { CommandSearch } from './CommandSearch';
 
 export function GlobalNav({ userRoles = ['contributor'], currentRole = 'contributor' }: { userRoles?: string[], currentRole?: string }) {
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-canvas/90 backdrop-blur-xl">
+    <header className="sticky top-0 z-40 w-full border-b border-muted/20 bg-bg/80 backdrop-blur" role="banner">
       <div className="shell flex h-16 items-center justify-between gap-4">
         <div className="flex items-center gap-6">
           <Link href="/" className="flex items-center gap-2 transition-opacity hover:opacity-80">
@@ -15,7 +15,7 @@ export function GlobalNav({ userRoles = ['contributor'], currentRole = 'contribu
           </Link>
           
           <div className="hidden md:flex items-center gap-2">
-            <div className="h-4 w-px bg-line mx-2" />
+            <div className="h-4 w-px bg-muted/20 mx-2" />
             <RoleSwitcher roles={userRoles} currentRole={currentRole} />
           </div>
         </div>
@@ -24,13 +24,13 @@ export function GlobalNav({ userRoles = ['contributor'], currentRole = 'contribu
           <CommandSearch />
         </div>
 
-        <div className="flex items-center gap-4">
+        <nav aria-label="Global" className="flex items-center gap-4">
           <div className="flex items-center gap-3">
-            <a href={`${publicEnv.accountsUrl}/profile`} className="flex h-8 w-8 items-center justify-center rounded-full bg-line text-sm font-bold text-ink hover:bg-ink-soft hover:text-canvas transition-colors">
+            <a href={`${publicEnv.accountsUrl}/profile`} className="flex h-8 w-8 items-center justify-center rounded-full bg-muted/20 text-sm font-bold text-text-bright hover:bg-primary hover:text-bg transition-colors">
               U
             </a>
           </div>
-        </div>
+        </nav>
       </div>
     </header>
   );

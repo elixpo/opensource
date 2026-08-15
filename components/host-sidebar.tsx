@@ -12,16 +12,16 @@ const navigation = [
 
 export function HostSidebar() {
   return (
-    <aside className="hidden min-h-screen border-r border-[var(--line)] bg-white p-5 lg:block">
+    <aside className="hidden min-h-screen border-r border-muted/20 bg-bg p-5 lg:block">
       <Logo />
-      <div className="mt-9 rounded-xl border border-[var(--line)] p-3">
-        <p className="text-[10px] font-bold uppercase tracking-wider text-[#999]">Host workspace</p>
-        <p className="mt-1 text-sm font-bold">Elixpo Community</p>
+      <div className="mt-9 rounded-xl border border-muted/20 p-3">
+        <p className="text-[10px] font-bold uppercase tracking-wider text-muted">Host workspace</p>
+        <p className="mt-1 text-sm font-bold text-text-bright">Elixpo Community</p>
       </div>
       <nav className="mt-5 space-y-1" aria-label="Host panel">
-        {navigation.map(([label, href], index) => <Link key={label} href={href} className={`block rounded-lg px-3 py-2.5 text-sm no-underline ${index === 0 ? 'bg-accent-soft font-bold text-accent' : 'text-[#666] hover:bg-[#f7f7f7] hover:text-ink'}`}>{label}</Link>)}
+        {navigation.map(([label, href], index) => <Link key={label} href={href} className={`block rounded-lg px-3 py-2.5 text-sm no-underline ${index === 0 ? 'bg-primary/10 font-bold text-primary' : 'text-muted hover:bg-card hover:text-text-bright'}`}>{label}</Link>)}
       </nav>
-      <div className="mt-8 border-t border-[var(--line)] pt-5"><p className="px-3 text-[10px] font-bold uppercase tracking-wider text-[#aaa]">Platform</p><Link href="/" className="mt-2 block rounded-lg px-3 py-2.5 text-sm text-[#666] no-underline hover:bg-[#f7f7f7]">Public site</Link></div>
+      <div className="mt-8 border-t border-muted/20 pt-5"><p className="px-3 text-[10px] font-bold uppercase tracking-wider text-muted">Platform</p><Link href="/" className="mt-2 block rounded-lg px-3 py-2.5 text-sm text-muted no-underline hover:bg-card">Public site</Link></div>
     </aside>
   );
 }
