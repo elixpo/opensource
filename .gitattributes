@@ -1,0 +1,5 @@
+# SOPS dotenv metadata is line-ending sensitive. Keep encrypted environment
+# files on LF even when Git is configured to use CRLF on Windows.
+.env text eol=lf
+.sops.yaml text eol=lf
+*.sh text eol=lf
