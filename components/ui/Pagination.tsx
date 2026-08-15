@@ -64,18 +64,18 @@ export function Pagination({
     if (!shouldShowLeftDots && shouldShowRightDots) {
       const leftItemCount = 3 + 2 * siblingCount;
       const leftRange = range(1, leftItemCount);
-      return [...leftRange, '...', totalPages];
+      return [...leftRange, 'right-ellipsis', totalPages];
     }
 
     if (shouldShowLeftDots && !shouldShowRightDots) {
       const rightItemCount = 3 + 2 * siblingCount;
       const rightRange = range(totalPages - rightItemCount + 1, totalPages);
-      return [firstPageIndex, '...', ...rightRange];
+      return [firstPageIndex, 'left-ellipsis', ...rightRange];
     }
 
     if (shouldShowLeftDots && shouldShowRightDots) {
       const middleRange = range(leftSiblingIndex, rightSiblingIndex);
-      return [firstPageIndex, '...', ...middleRange, '...', lastPageIndex];
+      return [firstPageIndex, 'left-ellipsis', ...middleRange, 'right-ellipsis', lastPageIndex];
     }
     
     return [];
@@ -87,7 +87,6 @@ export function Pagination({
 
   return (
     <nav
-      role="navigation"
       aria-label="pagination"
       className={cn("mx-auto flex w-full justify-center", className)}
       {...props}
@@ -95,6 +94,7 @@ export function Pagination({
       <ul className="flex flex-row items-center gap-1">
         <li>
           <button
+            type="button"
             onClick={() => onPageChange(currentPage - 1)}
             disabled={currentPage === 1}
             className="inline-flex h-9 items-center justify-center gap-1 rounded-md px-2.5 text-sm font-medium transition-colors hover:bg-muted/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary disabled:pointer-events-none disabled:opacity-50"
@@ -104,10 +104,10 @@ export function Pagination({
             <span>Previous</span>
           </button>
         </li>
-        {pages.map((pageNumber, index) => {
-          if (pageNumber === '...') {
+        {pages.map((pageNumber) => {
+          if (typeof pageNumber === 'string') {
             return (
-              <li key={`ellipsis-${index}`} className="flex h-9 w-9 items-center justify-center">
+              <li key={pageNumber} className="flex h-9 w-9 items-center justify-center">
                 <MoreHorizontal />
                 <span className="sr-only">More pages</span>
               </li>
@@ -118,6 +118,7 @@ export function Pagination({
           return (
             <li key={pageNumber as number}>
               <button
+                type="button"
                 onClick={() => onPageChange(pageNumber as number)}
                 aria-current={isCurrent ? "page" : undefined}
                 className={cn(
@@ -132,6 +133,7 @@ export function Pagination({
         })}
         <li>
           <button
+            type="button"
             onClick={() => onPageChange(currentPage + 1)}
             disabled={currentPage === totalPages}
             className="inline-flex h-9 items-center justify-center gap-1 rounded-md px-2.5 text-sm font-medium transition-colors hover:bg-muted/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary disabled:pointer-events-none disabled:opacity-50"

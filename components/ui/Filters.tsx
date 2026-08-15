@@ -1,6 +1,6 @@
 'use client';
 
-import * as React from 'react';
+import type * as React from 'react';
 import { cn } from '@/lib/utils';
 import { Input } from './Input';
 import { Select } from './Select';

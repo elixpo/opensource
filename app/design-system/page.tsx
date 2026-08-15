@@ -81,7 +81,7 @@ export default function DesignSystemStates() {
             <EmptyState 
               title="No issues found" 
               description="There are currently no open issues in this workspace that match your filters."
-              action={<button className="button-primary mt-4">Create Issue</button>}
+              action={<button type="button" className="button-primary mt-4">Create Issue</button>}
             />
           </div>
           <div className="space-y-2">
