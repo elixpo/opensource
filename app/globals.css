@@ -3,6 +3,14 @@
 @tailwind utilities;
 
 :root {
+  /* Legacy aliases remain while existing routes migrate to semantic tokens. */
+  --ink: #111111;
+  --ink-soft: #555555;
+  --ink-faint: #858585;
+  --line: #e8e8e8;
+  --accent: #e53935;
+  --accent-deep: #c62828;
+  --cream: #f9f5f0;
   --bg: #FFF8EB;
   --card: #FFF0D2;
   --primary: #FF5D68;
@@ -13,6 +21,16 @@
   --green: #3CC864;
   --text-bright: #262630;
   --muted: #A07864;
+}
+
+.dark {
+  --ink: #f5f5f5;
+  --ink-soft: #a3a3a3;
+  --ink-faint: #737373;
+  --line: #2d2d2d;
+  --accent: #ef5350;
+  --accent-deep: #e53935;
+  --cream: #151515;
 }
 
 * { box-sizing: border-box; }
@@ -55,4 +73,59 @@ a { color: inherit; }
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+.dark body {
+  background: #0a0a0a;
+}
+.dark header, .dark footer {
+  background-color: rgba(10, 10, 10, 0.9) !important;
+}
+.dark nav a:hover, .dark button:hover, .dark .relative button:hover {
+  background-color: #1a1a1a !important;
+}
+.dark .surface {
+  background-color: #121212 !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,.3), 0 14px 40px rgba(0,0,0,.4) !important;
+}
+.dark table {
+  color: #e5e5e5;
+}
+.dark thead tr {
+  background-color: #161616 !important;
+}
+.dark tbody tr:hover {
+  background-color: #1c1c1c !important;
+}
+.dark input, .dark select, .dark textarea {
+  background-color: #181818 !important;
+  color: #fff !important;
+  border-color: #333 !important;
+}
+.dark .ticker {
+  color: #999;
+}
+.dark .ticker b {
+  color: #ef5350;
+}
+.dark .bg-cream {
+  background-color: #121212 !important;
+}
+.dark .button-primary {
+  background-color: #f5f5f5 !important;
+  color: #111111 !important;
+}
+.dark .button-primary:hover {
+  background-color: #e5e5e5 !important;
+}
+.dark .button-secondary {
+  background-color: #1c1c1c !important;
+  color: #f5f5f5 !important;
+  border-color: #333 !important;
+}
+.dark .button-secondary:hover {
+  border-color: #555 !important;
+}
+.dark .hero-grid {
+  background-image: linear-gradient(rgba(255,255,255,.015) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.015) 1px, transparent 1px);
 }

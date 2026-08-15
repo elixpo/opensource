@@ -10,11 +10,12 @@ export function RoleSwitcher({ roles, currentRole }: { roles: string[], currentR
   return (
     <div className="relative">
       <button 
+        type="button"
         className="flex items-center gap-2 rounded-md border border-muted/20 bg-card px-3 py-1.5 text-sm font-medium text-text-bright transition-colors hover:bg-muted/10"
         onClick={() => setOpen(!open)}
       >
         <span className="capitalize">{currentRole}</span>
-        <svg className="h-4 w-4 opacity-50" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        <svg aria-hidden="true" className="h-4 w-4 opacity-50" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
       </button>
 
       {open && (
@@ -22,6 +23,7 @@ export function RoleSwitcher({ roles, currentRole }: { roles: string[], currentR
           <div className="px-2 py-1.5 text-xs font-semibold text-muted uppercase tracking-wider">Switch Role</div>
           {roles.map(role => (
             <button
+              type="button"
               key={role}
               className={cn(
                 "w-full rounded-sm px-2 py-1.5 text-left text-sm transition-colors hover:bg-muted/10 capitalize",

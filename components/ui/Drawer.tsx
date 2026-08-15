@@ -61,7 +61,12 @@ export function Drawer({ open, onOpenChange, children }: { open: boolean, onOpen
 
   return (
     <div className="fixed inset-0 z-50 flex justify-end">
-      <div className="fixed inset-0 bg-text-bright/60 backdrop-blur-sm transition-opacity" onClick={() => onOpenChange(false)} />
+      <button
+        type="button"
+        aria-label="Close drawer"
+        className="fixed inset-0 bg-text-bright/60 backdrop-blur-sm transition-opacity"
+        onClick={() => onOpenChange(false)}
+      />
       <div
         ref={drawerRef}
         tabIndex={-1}

@@ -1,7 +1,7 @@
 'use client';
 
-import { ErrorState } from '@/components/states/ErrorState';
 import { useEffect } from 'react';
+import { ErrorState } from '@/components/states/ErrorState';
 
 export default function HostError({
   error,
@@ -16,10 +16,10 @@ export default function HostError({
 
   return (
     <div className="flex-1 py-12">
-      <ErrorState 
-        title="Something went wrong" 
-        message={error.message || "An unexpected error occurred in the host workspace."}
-        onRetry={() => reset()}
+      <ErrorState
+        title="Something went wrong"
+        message={error.message || 'An unexpected error occurred in the host workspace.'}
+        onRetry={reset}
       />
     </div>
   );

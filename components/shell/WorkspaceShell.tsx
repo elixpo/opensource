@@ -1,4 +1,4 @@
-import * as React from 'react';
+import type * as React from 'react';
 import { GlobalNav } from './GlobalNav';
 import { Breadcrumbs } from './Breadcrumbs';
 
@@ -15,7 +15,7 @@ export function WorkspaceShell({
     <div className="flex min-h-screen flex-col bg-bg text-text-bright">
       <GlobalNav userRoles={userRoles} currentRole={currentRole} />
       
-      <main className="flex-1" role="main">
+      <main className="flex-1">
         <div className="shell py-6">
           <div className="mb-6">
             <Breadcrumbs />

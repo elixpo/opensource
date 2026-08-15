@@ -123,6 +123,7 @@ function Toast({ toast, onDismiss }: { toast: ToastData, onDismiss: () => void }
         </div>
       </div>
       <button
+        type="button"
         onClick={onDismiss}
         className={cn(
           "absolute right-2 top-2 rounded-md p-1 opacity-0 transition-opacity focus:opacity-100 group-hover:opacity-100",

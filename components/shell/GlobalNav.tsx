@@ -1,5 +1,3 @@
-import * as React from 'react';
-import Link from 'next/link';
 import { Logo } from '@/components/logo';
 import { publicEnv } from '@/lib/env';
 import { RoleSwitcher } from './RoleSwitcher';
@@ -7,12 +5,10 @@ import { CommandSearch } from './CommandSearch';
 
 export function GlobalNav({ userRoles = ['contributor'], currentRole = 'contributor' }: { userRoles?: string[], currentRole?: string }) {
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-muted/20 bg-bg/80 backdrop-blur" role="banner">
+    <header className="sticky top-0 z-40 w-full border-b border-muted/20 bg-bg/80 backdrop-blur">
       <div className="shell flex h-16 items-center justify-between gap-4">
         <div className="flex items-center gap-6">
-          <Link href="/" className="flex items-center gap-2 transition-opacity hover:opacity-80">
-            <Logo />
-          </Link>
+          <Logo />
           
           <div className="hidden md:flex items-center gap-2">
             <div className="h-4 w-px bg-muted/20 mx-2" />

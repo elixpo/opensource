@@ -1,4 +1,5 @@
-import * as React from 'react';
+'use client';
+
 import { Icon } from '@/components/icons';
 import { Button } from '@/components/ui/Button';
 

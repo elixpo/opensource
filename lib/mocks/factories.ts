@@ -1,4 +1,4 @@
-import { User, HostOrganization, Contest, ContestMembership } from './schema';
+import type { User, HostOrganization, Contest, ContestMembership } from './schema';
 
 let idCounter = 1;
 const generateId = (prefix: string) => `${prefix}_${Date.now()}_${idCounter++}`;
