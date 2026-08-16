@@ -1,8 +1,8 @@
 'use client';
 
 import * as React from 'react';
-import { cn } from '@/lib/utils';
 import { Icon } from '@/components/icons';
+import { cn } from '@/lib/utils';
 
 const ChevronLeft = () => (
   <Icon size={16}>
@@ -75,9 +75,15 @@ export function Pagination({
 
     if (shouldShowLeftDots && shouldShowRightDots) {
       const middleRange = range(leftSiblingIndex, rightSiblingIndex);
-      return [firstPageIndex, 'left-ellipsis', ...middleRange, 'right-ellipsis', lastPageIndex];
+      return [
+        firstPageIndex,
+        'left-ellipsis',
+        ...middleRange,
+        'right-ellipsis',
+        lastPageIndex,
+      ];
     }
-    
+
     return [];
   }, [totalPages, currentPage, siblingCount]);
 
@@ -88,7 +94,7 @@ export function Pagination({
   return (
     <nav
       aria-label="pagination"
-      className={cn("mx-auto flex w-full justify-center", className)}
+      className={cn('mx-auto flex w-full justify-center', className)}
       {...props}
     >
       <ul className="flex flex-row items-center gap-1">
@@ -107,7 +113,10 @@ export function Pagination({
         {pages.map((pageNumber) => {
           if (typeof pageNumber === 'string') {
             return (
-              <li key={pageNumber} className="flex h-9 w-9 items-center justify-center">
+              <li
+                key={pageNumber}
+                className="flex h-9 w-9 items-center justify-center"
+              >
                 <MoreHorizontal />
                 <span className="sr-only">More pages</span>
               </li>
@@ -120,10 +129,12 @@ export function Pagination({
               <button
                 type="button"
                 onClick={() => onPageChange(pageNumber as number)}
-                aria-current={isCurrent ? "page" : undefined}
+                aria-current={isCurrent ? 'page' : undefined}
                 className={cn(
-                  "inline-flex h-9 w-9 items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary disabled:pointer-events-none disabled:opacity-50",
-                  isCurrent ? "border border-primary text-primary" : "hover:bg-muted/10"
+                  'inline-flex h-9 w-9 items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary disabled:pointer-events-none disabled:opacity-50',
+                  isCurrent
+                    ? 'border border-primary text-primary'
+                    : 'hover:bg-muted/10',
                 )}
               >
                 {pageNumber}

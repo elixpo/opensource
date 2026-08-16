@@ -8,7 +8,13 @@ export const contestRoles = [
 ] as const;
 
 export type ContestRole = (typeof contestRoles)[number];
-export type ContestStatus = 'draft' | 'applications_open' | 'active' | 'review' | 'completed' | 'archived';
+export type ContestStatus =
+  | 'draft'
+  | 'applications_open'
+  | 'active'
+  | 'review'
+  | 'completed'
+  | 'archived';
 
 export interface Contest {
   id: string;
@@ -36,7 +42,14 @@ export interface TrackedActivity {
   actorId: string;
   actorRole: ContestRole;
   source: 'github' | 'platform';
-  kind: 'issue_claimed' | 'pull_request_opened' | 'review_submitted' | 'pull_request_merged' | 'mentorship_logged' | 'outreach_logged' | 'admin_action';
+  kind:
+    | 'issue_claimed'
+    | 'pull_request_opened'
+    | 'review_submitted'
+    | 'pull_request_merged'
+    | 'mentorship_logged'
+    | 'outreach_logged'
+    | 'admin_action';
   occurredAt: string;
   metadata: Record<string, string | number | boolean>;
 }

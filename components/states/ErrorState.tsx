@@ -12,7 +12,15 @@ const AlertCircle = () => (
   </Icon>
 );
 
-export function ErrorState({ title = "Something went wrong", message = "There was an error loading this data. Please try again.", onRetry }: { title?: string, message?: string, onRetry?: () => void }) {
+export function ErrorState({
+  title = 'Something went wrong',
+  message = 'There was an error loading this data. Please try again.',
+  onRetry,
+}: {
+  title?: string;
+  message?: string;
+  onRetry?: () => void;
+}) {
   return (
     <div className="flex min-h-[400px] flex-col items-center justify-center rounded-2xl border border-muted/20 bg-card p-8 text-center shadow-card">
       <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
@@ -20,11 +28,7 @@ export function ErrorState({ title = "Something went wrong", message = "There wa
       </div>
       <h3 className="mb-2 text-xl font-bold text-text-bright">{title}</h3>
       <p className="mb-6 max-w-md text-sm text-muted">{message}</p>
-      {onRetry && (
-        <Button onClick={onRetry}>
-          Try again
-        </Button>
-      )}
+      {onRetry && <Button onClick={onRetry}>Try again</Button>}
     </div>
   );
 }

@@ -4,7 +4,10 @@ import { publicEnv } from '@/lib/env';
 import './globals.css';
 
 const geistSans = Geist({ subsets: ['latin'], variable: '--font-geist-sans' });
-const geistMono = Geist_Mono({ subsets: ['latin'], variable: '--font-geist-mono' });
+const geistMono = Geist_Mono({
+  subsets: ['latin'],
+  variable: '--font-geist-mono',
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(publicEnv.appUrl),
@@ -17,14 +20,17 @@ export const metadata: Metadata = {
   applicationName: 'Elixpo Open Source',
   openGraph: {
     title: 'Elixpo Open Source — Run programs that ship',
-    description: 'GitHub-native programs, contribution tracking, leaderboards, mentorship, and payouts.',
+    description:
+      'GitHub-native programs, contribution tracking, leaderboards, mentorship, and payouts.',
     type: 'website',
     siteName: 'Elixpo Open Source',
   },
   robots: { index: true, follow: true },
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body>{children}</body>

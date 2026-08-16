@@ -1,5 +1,5 @@
-import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
+import { Navbar } from '@/components/navbar';
 
 const milestones = [
   {
@@ -56,20 +56,23 @@ export default function Timeline() {
             <h1 className="mt-4 text-4xl font-black tracking-[-.04em] md:text-6xl max-w-2xl">
               Our Journey.
             </h1>
-            <p className="mt-5 max-w-xl text-base leading-7 text-[#666]">
-              A chronological history of milestones completed and future feature developments planned for Elixpo Open Source.
+            <p className="mt-5 max-w-xl text-base leading-7 text-[#666] dark:text-neutral-400">
+              A chronological history of milestones completed and future feature
+              developments planned for Elixpo Open Source.
             </p>
 
             <div className="mt-16 relative border-l border-[var(--line)] pl-8 ml-4 flex flex-col gap-12">
               {milestones.map((milestone) => (
                 <div key={milestone.period} className="relative">
-                  <div className="absolute -left-[41px] top-1.5 h-6 w-6 rounded-full border-4 border-white bg-accent shadow" />
+                  <div className="absolute -left-[41px] top-1.5 h-6 w-6 rounded-full border-4 border-white dark:border-neutral-900 bg-accent shadow" />
                   <div>
                     <span className="font-mono text-xs font-bold text-accent bg-accent-soft px-2.5 py-1 rounded">
                       {milestone.period} — {milestone.status}
                     </span>
-                    <h3 className="mt-4 text-2xl font-black text-ink">{milestone.title}</h3>
-                    <ul className="mt-4 flex flex-col gap-2.5 text-sm leading-6 text-[#555] list-disc list-inside">
+                    <h3 className="mt-4 text-2xl font-black text-ink dark:text-neutral-100">
+                      {milestone.title}
+                    </h3>
+                    <ul className="mt-4 flex flex-col gap-2.5 text-sm leading-6 text-[#555] dark:text-neutral-300 list-disc list-inside">
                       {milestone.points.map((pt, idx) => (
                         <li key={idx}>{pt}</li>
                       ))}

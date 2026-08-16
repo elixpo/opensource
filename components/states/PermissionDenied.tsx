@@ -10,7 +10,11 @@ const LockIcon = () => (
   </Icon>
 );
 
-export function PermissionDenied({ message = "You don't have permission to access this resource." }: { message?: string }) {
+export function PermissionDenied({
+  message = "You don't have permission to access this resource.",
+}: {
+  message?: string;
+}) {
   return (
     <div className="flex min-h-[300px] flex-col items-center justify-center rounded-2xl border border-muted/20 bg-card p-8 text-center shadow-card">
       <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-purple/10 text-purple">

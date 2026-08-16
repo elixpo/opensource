@@ -24,7 +24,13 @@ export interface Contest {
   name: string;
   slug: string;
   summary: string;
-  status: 'draft' | 'applications_open' | 'active' | 'review' | 'completed' | 'archived';
+  status:
+    | 'draft'
+    | 'applications_open'
+    | 'active'
+    | 'review'
+    | 'completed'
+    | 'archived';
   repository_mode: 'selected' | 'organization';
   starts_at: string;
   ends_at: string;
@@ -37,7 +43,13 @@ export interface ContestMembership {
   id: string;
   contest_id: string;
   user_id: string;
-  role: 'host' | 'co_host' | 'project_admin' | 'mentor' | 'campus_ambassador' | 'contributor';
+  role:
+    | 'host'
+    | 'co_host'
+    | 'project_admin'
+    | 'mentor'
+    | 'campus_ambassador'
+    | 'contributor';
   created_at: string;
   updated_at: string;
 }

@@ -18,7 +18,9 @@ export default function HostError({
     <div className="flex-1 py-12">
       <ErrorState
         title="Something went wrong"
-        message={error.message || 'An unexpected error occurred in the host workspace.'}
+        message={
+          error.message || 'An unexpected error occurred in the host workspace.'
+        }
         onRetry={reset}
       />
     </div>

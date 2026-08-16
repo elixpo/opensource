@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
+import { Navbar } from '@/components/navbar';
 
 const faqs = [
   {
@@ -45,8 +45,9 @@ export default function FAQ() {
             <h1 className="mt-4 text-4xl font-black tracking-[-.04em] md:text-6xl max-w-2xl">
               Got Questions?
             </h1>
-            <p className="mt-5 max-w-xl text-base leading-7 text-[#666]">
-              Find answers to the most common queries about point calculation, contest setup, and reward payouts.
+            <p className="mt-5 max-w-xl text-base leading-7 text-[#666] dark:text-neutral-400">
+              Find answers to the most common queries about point calculation,
+              contest setup, and reward payouts.
             </p>
 
             <div className="mt-12 max-w-3xl flex flex-col gap-4">
@@ -54,7 +55,7 @@ export default function FAQ() {
                 <div key={index} className="surface overflow-hidden">
                   <button
                     onClick={() => toggleFAQ(index)}
-                    className="flex w-full items-center justify-between p-6 text-left font-extrabold text-ink transition hover:bg-[#fafafa]"
+                    className="flex w-full items-center justify-between p-6 text-left font-extrabold text-ink dark:text-neutral-100 transition hover:bg-[#fafafa] dark:hover:bg-neutral-800"
                   >
                     <span>{faq.q}</span>
                     <svg
@@ -66,11 +67,15 @@ export default function FAQ() {
                       stroke="currentColor"
                       strokeWidth="2.5"
                     >
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M19 9l-7 7-7-7"
+                      />
                     </svg>
                   </button>
                   {activeIndex === index && (
-                    <div className="border-t border-[var(--line)] bg-[#fafafa] p-6 text-sm leading-7 text-[#555] animate-in fade-in duration-200">
+                    <div className="border-t border-[var(--line)] bg-[#fafafa] dark:bg-neutral-900/60 p-6 text-sm leading-7 text-[#555] dark:text-neutral-300 animate-in fade-in duration-200">
                       {faq.a}
                     </div>
                   )}

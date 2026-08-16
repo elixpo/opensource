@@ -2,7 +2,15 @@
 
 import * as React from 'react';
 
-export function Drawer({ open, onOpenChange, children }: { open: boolean, onOpenChange: (open: boolean) => void, children: React.ReactNode }) {
+export function Drawer({
+  open,
+  onOpenChange,
+  children,
+}: {
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+  children: React.ReactNode;
+}) {
   const drawerRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
@@ -14,10 +22,12 @@ export function Drawer({ open, onOpenChange, children }: { open: boolean, onOpen
       // Basic focus trap
       if (e.key === 'Tab' && drawerRef.current) {
         const focusableElements = drawerRef.current.querySelectorAll(
-          'a[href], button, textarea, input[type="text"], input[type="radio"], input[type="checkbox"], select'
+          'a[href], button, textarea, input[type="text"], input[type="radio"], input[type="checkbox"], select',
         );
         const firstElement = focusableElements[0] as HTMLElement;
-        const lastElement = focusableElements[focusableElements.length - 1] as HTMLElement;
+        const lastElement = focusableElements[
+          focusableElements.length - 1
+        ] as HTMLElement;
 
         if (e.shiftKey) {
           if (document.activeElement === firstElement) {
@@ -39,14 +49,14 @@ export function Drawer({ open, onOpenChange, children }: { open: boolean, onOpen
       // Focus the drawer itself or its first focusable element when opened
       setTimeout(() => {
         if (drawerRef.current) {
-           const firstElement = drawerRef.current.querySelector(
-            'a[href], button, textarea, input[type="text"], input[type="radio"], input[type="checkbox"], select'
+          const firstElement = drawerRef.current.querySelector(
+            'a[href], button, textarea, input[type="text"], input[type="radio"], input[type="checkbox"], select',
           ) as HTMLElement;
-           if (firstElement) {
-             firstElement.focus();
-           } else {
-             drawerRef.current.focus();
-           }
+          if (firstElement) {
+            firstElement.focus();
+          } else {
+            drawerRef.current.focus();
+          }
         }
       }, 0);
     }
