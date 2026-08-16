@@ -1,11 +1,11 @@
 'use client';
 
 import type * as React from 'react';
+import { Icon } from '@/components/icons';
 import { cn } from '@/lib/utils';
+import { Button } from './Button';
 import { Input } from './Input';
 import { Select } from './Select';
-import { Button } from './Button';
-import { Icon } from '@/components/icons';
 
 const SearchIcon = () => (
   <Icon size={16}>
@@ -52,10 +52,18 @@ export function Filters({
   onClearFilters,
   ...props
 }: FiltersProps) {
-  const hasActiveFilters = Object.values(filterValues).some(val => val !== '');
+  const hasActiveFilters = Object.values(filterValues).some(
+    (val) => val !== '',
+  );
 
   return (
-    <div className={cn("flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between", className)} {...props}>
+    <div
+      className={cn(
+        'flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between',
+        className,
+      )}
+      {...props}
+    >
       <div className="relative w-full sm:max-w-sm">
         <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-muted">
           <SearchIcon />
@@ -77,7 +85,7 @@ export function Filters({
               <span>Filters:</span>
             </div>
           )}
-          
+
           {filters.map((filter) => (
             <div key={filter.id} className="w-full sm:w-auto min-w-[120px]">
               <Select

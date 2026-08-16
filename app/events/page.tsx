@@ -1,5 +1,5 @@
-import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
+import { Navbar } from '@/components/navbar';
 
 const events = [
   {
@@ -43,35 +43,73 @@ export default function Events() {
             <h1 className="mt-4 text-4xl font-black tracking-[-.04em] md:text-6xl max-w-2xl">
               Connect & learn.
             </h1>
-            <p className="mt-5 max-w-xl text-base leading-7 text-[#666]">
-              Participate in hackathons, weekly syncs, workshops, and sprints. Learn from core maintainers and level up your open-source skills.
+            <p className="mt-5 max-w-xl text-base leading-7 text-[#666] dark:text-neutral-400">
+              Participate in hackathons, weekly syncs, workshops, and sprints.
+              Learn from core maintainers and level up your open-source skills.
             </p>
 
             <div className="mt-12 flex flex-col gap-6">
               {events.map((event) => (
-                <div key={event.title} className="surface p-6 md:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6 hover:border-[#bbb] transition">
+                <div
+                  key={event.title}
+                  className="surface p-6 md:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6 hover:border-[#bbb] dark:hover:border-neutral-700 transition"
+                >
                   <div className="flex-1">
                     <div className="flex flex-wrap items-center gap-3">
-                      <span className="font-mono text-xs font-bold text-accent uppercase tracking-wider">{event.type}</span>
-                      <span className={`rounded-full px-2.5 py-0.5 text-[10px] font-bold ${
-                        event.status === 'Upcoming' ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'
-                      }`}>
+                      <span className="font-mono text-xs font-bold text-accent uppercase tracking-wider">
+                        {event.type}
+                      </span>
+                      <span
+                        className={`rounded-full px-2.5 py-0.5 text-[10px] font-bold ${
+                          event.status === 'Upcoming'
+                            ? 'bg-green-100 dark:bg-emerald-950/40 text-green-800 dark:text-emerald-400'
+                            : 'bg-gray-100 dark:bg-neutral-800 text-gray-800 dark:text-neutral-300'
+                        }`}
+                      >
                         {event.status}
                       </span>
                     </div>
-                    <h3 className="mt-3 text-xl font-extrabold text-ink">{event.title}</h3>
-                    <p className="mt-2 text-sm leading-6 text-[#666] max-w-2xl">{event.desc}</p>
+                    <h3 className="mt-3 text-xl font-extrabold text-ink dark:text-neutral-100">
+                      {event.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-6 text-[#666] dark:text-neutral-400 max-w-2xl">
+                      {event.desc}
+                    </p>
                     <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-xs font-mono text-[#555] dark:text-neutral-400">
                       <span className="flex items-center gap-1.5">
-                        <svg className="h-3.5 w-3.5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        <svg
+                          className="h-3.5 w-3.5 text-accent"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth="2.5"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                          />
                         </svg>
                         {event.date} at {event.time}
                       </span>
                       <span className="flex items-center gap-1.5">
-                        <svg className="h-3.5 w-3.5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                        <svg
+                          className="h-3.5 w-3.5 text-accent"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth="2.5"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                          />
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                          />
                         </svg>
                         {event.location}
                       </span>
@@ -79,9 +117,13 @@ export default function Events() {
                   </div>
                   <div>
                     {event.status === 'Upcoming' ? (
-                      <button className="button-primary w-full md:w-auto">Register</button>
+                      <button className="button-primary w-full md:w-auto">
+                        Register
+                      </button>
                     ) : (
-                      <button className="button-secondary w-full md:w-auto">Watch Session</button>
+                      <button className="button-secondary w-full md:w-auto">
+                        Watch Session
+                      </button>
                     )}
                   </div>
                 </div>

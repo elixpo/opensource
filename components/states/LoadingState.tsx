@@ -10,10 +10,13 @@ export function LoadingState({ text = 'Loading...' }: { text?: string }) {
   );
 }
 
-export function Skeleton({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
+export function Skeleton({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
-      className={cn("animate-pulse rounded-md bg-muted/20", className)}
+      className={cn('animate-pulse rounded-md bg-muted/20', className)}
       {...props}
     />
   );

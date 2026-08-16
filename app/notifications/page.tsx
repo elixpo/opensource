@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
+import { Navbar } from '@/components/navbar';
 
 interface NotificationItem {
   id: string;
@@ -49,18 +49,21 @@ const initialNotifications: NotificationItem[] = [
 ];
 
 export default function Notifications() {
-  const [notifications, setNotifications] = useState<NotificationItem[]>(initialNotifications);
+  const [notifications, setNotifications] =
+    useState<NotificationItem[]>(initialNotifications);
 
   const markAllRead = () => {
-    setNotifications(notifications.map(n => ({ ...n, read: true })));
+    setNotifications(notifications.map((n) => ({ ...n, read: true })));
   };
 
   const toggleRead = (id: string) => {
-    setNotifications(notifications.map(n => n.id === id ? { ...n, read: !n.read } : n));
+    setNotifications(
+      notifications.map((n) => (n.id === id ? { ...n, read: !n.read } : n)),
+    );
   };
 
   const removeNotification = (id: string) => {
-    setNotifications(notifications.filter(n => n.id !== id));
+    setNotifications(notifications.filter((n) => n.id !== id));
   };
 
   return (
@@ -87,20 +90,36 @@ export default function Notifications() {
 
             <div className="mt-12 flex flex-col gap-4">
               {notifications.length === 0 ? (
-                <div className="surface p-12 text-center text-[#777] dark:text-neutral-500">
+                <div className="surface p-12 text-center text-[#777] dark:text-neutral-400">
                   <div className="grid h-12 w-12 place-items-center rounded-xl bg-accent-soft text-accent mx-auto mb-4">
-                    <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M3 19v-8.93a2 2 0 01.89-1.664l8-5.333a2 2 0 012.22 0l8 5.333A2 2 0 0121 10.07V19a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M3 10l9 6 9-6" />
+                    <svg
+                      className="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M3 19v-8.93a2 2 0 01.89-1.664l8-5.333a2 2 0 012.22 0l8 5.333A2 2 0 0121 10.07V19a2 2 0 01-2 2H5a2 2 0 01-2-2z"
+                      />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M3 10l9 6 9-6"
+                      />
                     </svg>
                   </div>
-                  <p className="font-mono text-sm font-bold">Inbox clean. No notifications left.</p>
+                  <p className="font-mono text-sm font-bold">
+                    Inbox clean. No notifications left.
+                  </p>
                 </div>
               ) : (
                 notifications.map((n) => (
                   <div
                     key={n.id}
-                    className={`surface p-6 flex items-start gap-4 hover:border-[#bbb] transition ${
+                    className={`surface p-6 flex items-start gap-4 hover:border-[#bbb] dark:hover:border-neutral-700 transition ${
                       n.read ? 'opacity-70' : 'border-l-4 border-l-accent'
                     }`}
                   >
@@ -109,10 +128,16 @@ export default function Notifications() {
                         <span className="font-mono text-[9px] font-bold text-accent uppercase bg-accent-soft dark:bg-accent/10 px-2 py-0.5 rounded">
                           {n.type}
                         </span>
-                        <span className="text-[10px] text-[#777] dark:text-neutral-500">{n.time}</span>
+                        <span className="text-[10px] text-[#777] dark:text-neutral-400">
+                          {n.time}
+                        </span>
                       </div>
-                      <h3 className="mt-3 text-lg font-bold text-ink dark:text-neutral-200">{n.title}</h3>
-                      <p className="mt-1.5 text-sm leading-relaxed text-[#555] dark:text-neutral-400">{n.desc}</p>
+                      <h3 className="mt-3 text-lg font-bold text-ink dark:text-neutral-100">
+                        {n.title}
+                      </h3>
+                      <p className="mt-1.5 text-sm leading-relaxed text-[#555] dark:text-neutral-300">
+                        {n.desc}
+                      </p>
                     </div>
                     <div className="flex items-center gap-2">
                       <button

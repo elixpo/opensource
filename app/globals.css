@@ -3,24 +3,27 @@
 @tailwind utilities;
 
 :root {
-  /* Legacy aliases remain while existing routes migrate to semantic tokens. */
+  /* Semantic & Brand Tokens */
   --ink: #111111;
   --ink-soft: #555555;
   --ink-faint: #858585;
   --line: #e8e8e8;
   --accent: #e53935;
   --accent-deep: #c62828;
+  --accent-soft: #fff0ee;
+  --canvas: #ffffff;
   --cream: #f9f5f0;
-  --bg: #FFF8EB;
-  --card: #FFF0D2;
-  --primary: #FF5D68;
-  --teal: #00B4A5;
-  --gold: #FFBE1E;
-  --orange: #FF8C1E;
-  --purple: #B450DC;
-  --green: #3CC864;
+  --bg: #fff8eb;
+  --card: #fff0d2;
+  --primary: #ff5d68;
+  --teal: #00b4a5;
+  --gold: #ffbe1e;
+  --orange: #ff8c1e;
+  --purple: #b450dc;
+  --green: #3cc864;
   --text-bright: #262630;
-  --muted: #A07864;
+  --muted: #a07864;
+  --status-bg: #ff5d68;
 }
 
 .dark {
@@ -30,102 +33,152 @@
   --line: #2d2d2d;
   --accent: #ef5350;
   --accent-deep: #e53935;
+  --accent-soft: rgba(239, 83, 80, 0.15);
+  --canvas: #0a0a0a;
   --cream: #151515;
+  --bg: #0a0a0a;
+  --card: #141414;
+  --primary: #ff5d68;
+  --teal: #00d4c5;
+  --gold: #ffbe1e;
+  --orange: #ff8c1e;
+  --purple: #c864f0;
+  --green: #3cc864;
+  --text-bright: #ededed;
+  --muted: #9e9ea8;
+  --status-bg: #ff5d68;
 }
 
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
 body {
   margin: 0;
   min-height: 100vh;
   overflow-x: hidden;
   background: var(--bg);
   color: var(--text-bright);
-  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family:
+    var(--font-geist-sans), -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-a { color: inherit; }
-::selection { background: rgba(255, 93, 104, .25); }
+a {
+  color: inherit;
+}
+::selection {
+  background: rgba(255, 93, 104, 0.25);
+}
 
 @layer components {
-  .shell { @apply mx-auto w-full max-w-[1240px] px-5 md:px-8; }
-  .eyebrow { @apply font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-primary; }
-  .button-primary { @apply inline-flex items-center justify-center gap-2 rounded-full bg-text-bright px-5 py-3 text-sm font-bold text-bg no-underline transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#1a1a24]; }
-  .button-secondary { @apply inline-flex items-center justify-center gap-2 rounded-full border border-muted/20 bg-card px-5 py-3 text-sm font-bold no-underline transition-all duration-200 hover:-translate-y-0.5 hover:border-muted/40 hover:bg-[#ffe3b0]; }
-  .surface { @apply rounded-2xl border border-muted/10 bg-card shadow-card; }
+  .shell {
+    @apply mx-auto w-full max-w-[1240px] px-5 md:px-8;
+  }
+  .eyebrow {
+    @apply font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-primary;
+  }
+  .button-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-text-bright px-5 py-3 text-sm font-bold text-bg no-underline transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#1a1a24] dark:hover:bg-[#d5d5d5];
+  }
+  .button-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-line bg-card px-5 py-3 text-sm font-bold no-underline transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#ffe3b0] dark:hover:bg-[#222222];
+  }
+  .surface {
+    @apply rounded-2xl border border-line bg-card shadow-card dark:border-white/[0.08];
+  }
 }
 
 .hero-grid {
-  background-image: linear-gradient(rgba(38,38,48,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(38,38,48,.035) 1px, transparent 1px);
+  background-image:
+    linear-gradient(rgba(38, 38, 48, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(38, 38, 48, 0.035) 1px, transparent 1px);
   background-size: 32px 32px;
   mask-image: linear-gradient(to bottom, black 35%, transparent 95%);
 }
 
-.ticker { animation: ticker 24s linear infinite; }
-@keyframes ticker { to { transform: translateX(-50%); } }
+.ticker {
+  animation: ticker 24s linear infinite;
+}
+@keyframes ticker {
+  to {
+    transform: translateX(-50%);
+  }
+}
 
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms;
+    animation-iteration-count: 1;
+    transition-duration: 0.01ms;
+    scroll-behavior: auto;
   }
 }
 
 .dark body {
-  background: #0a0a0a;
+  background: var(--bg);
+  color: var(--text-bright);
 }
-.dark header, .dark footer {
-  background-color: rgba(10, 10, 10, 0.9) !important;
-}
-.dark nav a:hover, .dark button:hover, .dark .relative button:hover {
-  background-color: #1a1a1a !important;
+.dark header,
+.dark footer {
+  background-color: rgba(10, 10, 10, 0.9);
 }
 .dark .surface {
-  background-color: #121212 !important;
-  box-shadow: 0 1px 3px rgba(0,0,0,.3), 0 14px 40px rgba(0,0,0,.4) !important;
+  background-color: var(--card);
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.3),
+    0 14px 40px rgba(0, 0, 0, 0.4);
 }
 .dark table {
   color: #e5e5e5;
 }
 .dark thead tr {
-  background-color: #161616 !important;
+  background-color: #161616;
 }
 .dark tbody tr:hover {
-  background-color: #1c1c1c !important;
+  background-color: #1c1c1c;
 }
-.dark input, .dark select, .dark textarea {
-  background-color: #181818 !important;
-  color: #fff !important;
-  border-color: #333 !important;
+.dark input,
+.dark select,
+.dark textarea {
+  background-color: #181818;
+  color: #fff;
+  border-color: #333;
 }
 .dark .ticker {
-  color: #999;
+  color: #9e9ea8;
 }
 .dark .ticker b {
   color: #ef5350;
 }
 .dark .bg-cream {
-  background-color: #121212 !important;
+  background-color: #151515;
 }
 .dark .button-primary {
-  background-color: #f5f5f5 !important;
-  color: #111111 !important;
+  background-color: #f5f5f5;
+  color: #111111;
 }
 .dark .button-primary:hover {
-  background-color: #e5e5e5 !important;
+  background-color: #e5e5e5;
 }
 .dark .button-secondary {
-  background-color: #1c1c1c !important;
-  color: #f5f5f5 !important;
-  border-color: #333 !important;
+  background-color: #1c1c1c;
+  color: #f5f5f5;
+  border-color: #333;
 }
 .dark .button-secondary:hover {
-  border-color: #555 !important;
+  border-color: #555;
+  background-color: #262626;
 }
 .dark .hero-grid {
-  background-image: linear-gradient(rgba(255,255,255,.015) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.015) 1px, transparent 1px);
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
 }

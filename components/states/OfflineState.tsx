@@ -13,14 +13,14 @@ const WifiOff = () => (
   </Icon>
 );
 
-export function OfflineState({ 
-  title = "You're offline", 
-  message = "Please check your internet connection and try again.", 
-  onRetry 
-}: { 
-  title?: string, 
-  message?: string, 
-  onRetry?: () => void 
+export function OfflineState({
+  title = "You're offline",
+  message = 'Please check your internet connection and try again.',
+  onRetry,
+}: {
+  title?: string;
+  message?: string;
+  onRetry?: () => void;
 }) {
   return (
     <div className="flex min-h-[400px] flex-col items-center justify-center rounded-2xl border border-muted/20 bg-card p-8 text-center shadow-card">
@@ -29,11 +29,7 @@ export function OfflineState({
       </div>
       <h3 className="mb-2 text-xl font-bold text-text-bright">{title}</h3>
       <p className="mb-6 max-w-md text-sm text-muted">{message}</p>
-      {onRetry && (
-        <Button onClick={onRetry}>
-          Try again
-        </Button>
-      )}
+      {onRetry && <Button onClick={onRetry}>Try again</Button>}
     </div>
   );
 }

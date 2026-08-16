@@ -1,4 +1,9 @@
-import type { User, HostOrganization, Contest, ContestMembership } from './schema';
+import type {
+  Contest,
+  ContestMembership,
+  HostOrganization,
+  User,
+} from './schema';
 
 let idCounter = 1;
 const generateId = (prefix: string) => `${prefix}_${Date.now()}_${idCounter++}`;
@@ -13,7 +18,9 @@ export const createMockUser = (overrides?: Partial<User>): User => ({
   ...overrides,
 });
 
-export const createMockOrganization = (overrides?: Partial<HostOrganization>): HostOrganization => ({
+export const createMockOrganization = (
+  overrides?: Partial<HostOrganization>,
+): HostOrganization => ({
   id: generateId('org'),
   name: 'Elixpo Foundation',
   slug: 'elixpo-foundation',
@@ -39,7 +46,9 @@ export const createMockContest = (overrides?: Partial<Contest>): Contest => ({
   ...overrides,
 });
 
-export const createMockMembership = (overrides?: Partial<ContestMembership>): ContestMembership => ({
+export const createMockMembership = (
+  overrides?: Partial<ContestMembership>,
+): ContestMembership => ({
   id: generateId('mem'),
   contest_id: 'con_1',
   user_id: 'usr_1',
