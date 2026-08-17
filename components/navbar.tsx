@@ -326,14 +326,6 @@ export function Navbar() {
             </>
           )}
 
-          <a
-            href={publicEnv.githubRepository}
-            target="_blank"
-            rel="noreferrer"
-            className="rounded-lg border border-[var(--line)] dark:border-neutral-800 px-3 py-2 text-sm font-medium text-[#555] dark:text-neutral-400 no-underline hover:border-[#bbb] dark:hover:border-neutral-700 transition"
-          >
-            GitHub
-          </a>
         </div>
 
         <div className="flex items-center gap-1.5 md:hidden">
@@ -521,14 +513,6 @@ export function Navbar() {
 
             <div className="my-2 border-t border-[var(--line)] dark:border-neutral-800" />
 
-            <a
-              href={publicEnv.githubRepository}
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-lg px-3 py-2.5 text-base font-medium text-[#555] dark:text-neutral-400 no-underline hover:bg-[#f6f6f6] hover:text-ink dark:hover:bg-neutral-900 dark:hover:text-white transition"
-            >
-              GitHub
-            </a>
           </div>
         </div>
       )}
