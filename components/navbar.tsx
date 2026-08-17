@@ -10,8 +10,12 @@ const navLinks = [
   { href: '/contests/opencode-summer-2026/projects', label: 'Projects' },
   { href: '/contests/opencode-summer-2026/leaderboard', label: 'Leaderboard' },
   { href: '/events', label: 'Events' },
-  { href: '/community', label: 'Community' },
-  { href: '/blog', label: 'Blog' },
+  { href: '/discussion', label: 'Discussion' },
+  { href: '/about', label: 'About Us' },
+  { href: '/timeline', label: 'Timeline' },
+  { href: '/faq', label: 'FAQ' },
+  { href: '/sponsors', label: 'Sponsors' },
+  { href: '/code-of-conduct', label: 'Code of Conduct' },
 ];
 
 const aboutLinks = [
