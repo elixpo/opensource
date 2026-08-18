@@ -132,7 +132,7 @@ export function Navbar() {
                     ? 'font-semibold text-ink dark:text-white'
                     : 'text-[#555] dark:text-neutral-400'
                 }`}
-            >
+              >
                 {link.label}
               </Link>
             ))}
