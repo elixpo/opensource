@@ -13,14 +13,18 @@ function validUrl(name: string, value: string): string {
 }
 
 export const publicEnv: PublicEnvironment = {
-  appUrl: validUrl('NEXT_PUBLIC_APP_URL', process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3000'),
+  appUrl: validUrl(
+    'NEXT_PUBLIC_APP_URL',
+    process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3000',
+  ),
   accountsUrl: validUrl(
     'NEXT_PUBLIC_ACCOUNTS_URL',
     process.env.NEXT_PUBLIC_ACCOUNTS_URL ?? 'https://accounts.elixpo.com',
   ),
   githubRepository: validUrl(
     'NEXT_PUBLIC_GITHUB_REPOSITORY',
-    process.env.NEXT_PUBLIC_GITHUB_REPOSITORY ?? 'https://github.com/elixpo/opensource',
+    process.env.NEXT_PUBLIC_GITHUB_REPOSITORY ??
+      'https://github.com/elixpo/opensource',
   ),
 };
 

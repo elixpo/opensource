@@ -1,5 +1,5 @@
-import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
+import { Navbar } from '@/components/navbar';
 
 const hubs = [
   {
@@ -48,27 +48,56 @@ export default function Discussion() {
             <h1 className="mt-4 text-4xl font-black tracking-[-.04em] md:text-6xl max-w-2xl">
               Stronger together.
             </h1>
-            <p className="mt-5 max-w-xl text-base leading-7 text-[#666]">
-              Engage with an active global network of software developers, designers, and open-source coordinators building the future of public code.
+            <p className="mt-5 max-w-xl text-base leading-7 text-[#666] dark:text-neutral-400">
+              Engage with an active global network of software developers,
+              designers, and open-source coordinators building the future of
+              public code.
             </p>
 
             <div className="mt-12 grid gap-6 md:grid-cols-2">
               {hubs.map((hub) => (
-                <div key={hub.name} className="surface p-8 flex flex-col justify-between hover:border-[#bbb] transition">
+                <div
+                  key={hub.name}
+                  className="surface p-8 flex flex-col justify-between hover:border-[#bbb] dark:hover:border-neutral-700 transition"
+                >
                   <div>
                     <div className="flex items-center justify-between">
-                      <span className="font-mono text-xs font-bold uppercase tracking-wider" style={{ color: hub.accentColor }}>
-                        {hub.stats}
+                      <span
+                        className="font-mono text-xs font-bold uppercase tracking-wider"
+                        style={{
+                          color:
+                            hub.accentColor === '#1F2328'
+                              ? undefined
+                              : hub.accentColor,
+                        }}
+                      >
+                        <span
+                          className={
+                            hub.accentColor === '#1F2328'
+                              ? 'text-ink dark:text-emerald-400'
+                              : ''
+                          }
+                        >
+                          {hub.stats}
+                        </span>
                       </span>
                     </div>
-                    <h3 className="mt-4 text-2xl font-black text-ink">{hub.name}</h3>
-                    <p className="mt-3 text-sm leading-6 text-[#555]">{hub.desc}</p>
+                    <h3 className="mt-4 text-2xl font-black text-ink dark:text-neutral-100">
+                      {hub.name}
+                    </h3>
+                    <p className="mt-3 text-sm leading-6 text-[#555] dark:text-neutral-300">
+                      {hub.desc}
+                    </p>
                   </div>
                   <div className="mt-8 border-t border-[var(--line)] pt-5">
                     <a
                       href={hub.url}
                       className="button-primary w-full md:w-auto"
-                      style={{ backgroundColor: hub.accentColor }}
+                      style={
+                        hub.accentColor === '#1F2328'
+                          ? undefined
+                          : { backgroundColor: hub.accentColor }
+                      }
                     >
                       {hub.cta}
                     </a>
