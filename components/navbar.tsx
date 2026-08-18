@@ -251,13 +251,13 @@ export function Navbar() {
             <>
               <Link
                 href="/login"
-                className="rounded-lg px-3 py-2 text-sm font-medium text-[#555] dark:text-neutral-400 no-underline hover:text-ink dark:hover:text-white transition"
+                className="rounded-lg px-3 py-2 text-sm font-medium text-[#555] dark:text-neutral-400 no-underline transition-all duration-200 hover:text-ink dark:hover:text-white"
               >
                 Login
               </Link>
               <Link
                 href="/register"
-                className="rounded-full bg-accent px-4 py-2 text-sm font-bold text-white no-underline transition hover:bg-accent-deep"
+                className="rounded-full bg-accent px-4 py-2 text-sm font-bold text-white no-underline shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-accent-deep hover:shadow-md dark:shadow-accent/20"
               >
                 Join Now
               </Link>
@@ -400,13 +400,13 @@ export function Navbar() {
               <div className="flex flex-col gap-2">
                 <Link
                   href="/login"
-                  className="rounded-lg px-3 py-2.5 text-base no-underline text-[#555] dark:text-neutral-400 hover:bg-[#f6f6f6] dark:hover:bg-neutral-900"
+                  className="rounded-lg px-3 py-2.5 text-base no-underline text-[#555] dark:text-neutral-400 transition-all duration-200 hover:bg-[#f6f6f6] hover:text-ink dark:hover:bg-neutral-900 dark:hover:text-white"
                 >
                   Login
                 </Link>
                 <Link
                   href="/register"
-                  className="rounded-full bg-accent text-center px-4 py-2.5 text-base font-bold text-white no-underline transition hover:bg-accent-deep"
+                  className="rounded-full bg-accent text-center px-4 py-2.5 text-base font-bold text-white no-underline shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-accent-deep hover:shadow-md dark:shadow-accent/20"
                 >
                   Join Now
                 </Link>
