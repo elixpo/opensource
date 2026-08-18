@@ -36,7 +36,7 @@ const hubs = [
   },
 ];
 
-export default function Community() {
+export default function Discussion() {
   return (
     <main className="min-h-screen flex flex-col justify-between">
       <div>
