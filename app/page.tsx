@@ -82,12 +82,9 @@ export default function Home() {
             </span>
           </h1>
           <p className="mx-auto mt-7 max-w-2xl text-[1.05rem] leading-7 text-[#555] dark:text-neutral-300 md:text-lg">
-            Elixpo Open Source is the complete platform for launching and
-            managing open-source contributor programs, hackathons, and
-            GSoC-style mentorship circles. Connect GitHub repositories in
-            seconds, configure label-based point rules, invite mentors, track
-            live leaderboards, and automate contributor payouts from a single
-            audit-ready workspace.
+            Launch contributor programs, hackathons, and mentorship circles from
+            one workspace. Sync GitHub repos, score work by labels, manage
+            mentors, track leaderboards, and handle audit-ready payouts.
           </p>
           <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Link href="/host/contests/new" className="button-primary">
