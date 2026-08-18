@@ -11,11 +11,6 @@ const navLinks = [
   { href: '/contests/opencode-summer-2026/leaderboard', label: 'Leaderboard' },
   { href: '/events', label: 'Events' },
   { href: '/discussion', label: 'Discussion' },
-  { href: '/about', label: 'About Us' },
-  { href: '/timeline', label: 'Timeline' },
-  { href: '/faq', label: 'FAQ' },
-  { href: '/sponsors', label: 'Sponsors' },
-  { href: '/code-of-conduct', label: 'Code of Conduct' },
 ];
 
 const mockNotifications = [
@@ -118,13 +113,13 @@ export function Navbar() {
         <Logo />
 
         <nav
-          className="hidden items-center gap-1 lg:flex"
+          className="hidden items-center gap-1 xl:flex"
           aria-label="Primary navigation"
         >
           <AnimatedBackground
             defaultValue={pathname}
-            className="rounded-lg bg-[#f6f6f6] dark:bg-neutral-900"
-            transition={{ type: 'spring', bounce: 0, duration: 0.2 }}
+            className="rounded-lg bg-[rgba(136,136,136,0.8)]"
+            transition={{ type: 'spring', bounce: 0.2, duration: 0.3 }}
             enableHover={true}
           >
             {navLinks.map((link) => (
@@ -132,19 +127,19 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 data-id={link.href}
-                className={`px-3 py-2 text-sm no-underline transition hover:text-ink dark:hover:text-white ${
+                className={`whitespace-nowrap px-2.5 py-2 text-[13px] tracking-wide no-underline transition-colors duration-200 hover:text-ink dark:hover:text-white ${
                   pathname === link.href
                     ? 'font-semibold text-ink dark:text-white'
                     : 'text-[#555] dark:text-neutral-400'
                 }`}
-              >
+            >
                 {link.label}
               </Link>
             ))}
           </AnimatedBackground>
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
+        <div className="hidden items-center gap-3 xl:flex">
           <button
             type="button"
             onClick={toggleTheme}
@@ -393,7 +388,7 @@ export function Navbar() {
               </Link>
               <Link
                 href="/register"
-                className="whitespace-nowrap rounded-full bg-accent px-4 py-2 text-sm font-bold text-white no-underline transition hover:bg-accent-deep"
+                className="whitespace-nowrap rounded-full bg-zinc-900 px-4 py-2 text-sm font-bold text-white no-underline shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
               >
                 Join Now
               </Link>
@@ -401,7 +396,7 @@ export function Navbar() {
           )}
         </div>
 
-        <div className="flex items-center gap-1.5 lg:hidden">
+        <div className="flex items-center gap-1.5 xl:hidden">
           <button
             type="button"
             onClick={toggleTheme}
@@ -502,7 +497,7 @@ export function Navbar() {
       </div>
 
       {mobileMenuOpen && (
-        <div className="border-t border-[var(--line)] bg-white py-4 shadow-inner dark:border-neutral-800 dark:bg-neutral-950 lg:hidden animate-in fade-in slide-in-from-top-4 duration-200">
+        <div className="border-t border-[var(--line)] bg-white py-4 shadow-inner dark:border-neutral-800 dark:bg-neutral-950 xl:hidden animate-in fade-in slide-in-from-top-4 duration-200">
           <div className="shell flex flex-col gap-2">
             {navLinks.map((link) => (
               <Link
@@ -634,7 +629,7 @@ export function Navbar() {
                 </Link>
                 <Link
                   href="/register"
-                  className="rounded-full bg-accent text-center px-4 py-2.5 text-base font-bold text-white no-underline transition hover:bg-accent-deep"
+                  className="whitespace-nowrap rounded-full bg-zinc-900 px-4 py-2 text-sm font-bold text-white no-underline shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
                 >
                   Join Now
                 </Link>
