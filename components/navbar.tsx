@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { Logo } from './logo';
+import { AnimatedBackground } from '@/components/core/animated-background';
 
 const navLinks = [
   { href: '/contests/opencode-summer-2026/projects', label: 'Projects' },
@@ -99,17 +100,25 @@ export function Navbar() {
         <Logo />
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary navigation">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`rounded-lg px-3 py-2 text-sm no-underline transition hover:bg-[#f6f6f6] hover:text-ink dark:hover:bg-neutral-900 dark:hover:text-white ${
-                isActive(link.href) ? 'bg-[#f6f6f6] dark:bg-neutral-900 font-semibold text-ink dark:text-white' : 'text-[#555] dark:text-neutral-400'
-              }`}
-            >
-              {link.label}
-            </Link>
-          ))}
+          <AnimatedBackground
+            className="rounded-lg bg-[rgba(136,136,136,0.8)]"
+            transition={{ type: 'spring', bounce: 0.2, duration: 0.3 }}
+            enableHover
+          >
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                data-id={link.href}
+                className={`whitespace-nowrap rounded-lg px-3 py-2 text-sm no-underline transition-colors duration-300 ${
+                  isActive(link.href) ? 'font-semibold text-ink dark:text-white' : 'text-[#555] hover:text-ink dark:text-neutral-400 dark:hover:text-white'
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </AnimatedBackground>            
+  
 
         </nav>
 
@@ -251,13 +260,13 @@ export function Navbar() {
             <>
               <Link
                 href="/login"
-                className="rounded-lg px-3 py-2 text-sm font-medium text-[#555] dark:text-neutral-400 no-underline transition-all duration-200 hover:text-ink dark:hover:text-white"
+                className="whitespace-nowrap rounded-lg px-3 py-2 text-sm font-medium text-[#555] dark:text-neutral-400 no-underline transition-all duration-200 hover:text-ink dark:hover:text-white"
               >
                 Login
               </Link>
               <Link
                 href="/register"
-                className="rounded-full bg-accent px-4 py-2 text-sm font-bold text-white no-underline shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-accent-deep hover:shadow-md dark:shadow-accent/20"
+                className="whitespace-nowrap rounded-lg px-3 py-2 text-sm font-medium text-[#555] dark:text-neutral-400 no-underline transition-all duration-200 hover:text-ink dark:hover:text-white"
               >
                 Join Now
               </Link>
@@ -406,7 +415,7 @@ export function Navbar() {
                 </Link>
                 <Link
                   href="/register"
-                  className="rounded-full bg-accent text-center px-4 py-2.5 text-base font-bold text-white no-underline shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-accent-deep hover:shadow-md dark:shadow-accent/20"
+                  className="rounded-lg px-3 py-2.5 text-base no-underline text-[#555] dark:text-neutral-400 transition-all duration-200 hover:bg-[#f6f6f6] hover:text-ink dark:hover:bg-neutral-900 dark:hover:text-white"
                 >
                   Join Now
                 </Link>
