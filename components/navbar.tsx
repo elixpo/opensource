@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { publicEnv } from '@/lib/env';
 import { Logo } from './logo';
 
 const navLinks = [
@@ -18,14 +17,6 @@ const navLinks = [
   { href: '/code-of-conduct', label: 'Code of Conduct' },
 ];
 
-const aboutLinks = [
-  { href: '/about', label: 'About Us', desc: 'Our mission, team, and open-source vision.' },
-  { href: '/timeline', label: 'Timeline', desc: 'Our milestones and feature roadmap.' },
-  { href: '/faq', label: 'FAQ', desc: 'Frequently asked questions.' },
-  { href: '/sponsors', label: 'Sponsors', desc: 'Our partners and backing community.' },
-  { href: '/code-of-conduct', label: 'Code of Conduct', desc: 'Guidelines for a safe, inclusive space.' },
-];
-
 const mockNotifications = [
   { id: '1', title: 'PR #284 merged', desc: 'Sofia Chen merged your contribution to elixpo/opensource.', time: '2m ago', type: 'PR' },
   { id: '2', title: 'Points Awarded', desc: 'You received +200 points for verifying bug claims in elixpo/cli.', time: '18m ago', type: 'Points' },
@@ -33,16 +24,13 @@ const mockNotifications = [
 ];
 
 export function Navbar() {
-  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
   const [notificationsOpen, setNotificationsOpen] = useState(false);
   const [avatarMenuOpen, setAvatarMenuOpen] = useState(false);
 
   const isLoggedIn = false;
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
 
-  const dropdownRef = useRef<HTMLDivElement>(null);
   const notifRef = useRef<HTMLDivElement>(null);
   const avatarRef = useRef<HTMLDivElement>(null);
 
@@ -86,9 +74,6 @@ export function Navbar() {
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setDropdownOpen(false);
-      }
       if (notifRef.current && !notifRef.current.contains(event.target as Node)) {
         setNotificationsOpen(false);
       }
@@ -101,22 +86,19 @@ export function Navbar() {
   }, []);
 
   useEffect(() => {
-    setDropdownOpen(false);
     setNotificationsOpen(false);
     setAvatarMenuOpen(false);
     setMobileMenuOpen(false);
-    setMobileAboutOpen(false);
   }, [pathname]);
 
   const isActive = (href: string) => pathname === href;
-  const isAboutActive = aboutLinks.some(link => pathname === link.href);
 
   return (
     <header className="sticky top-0 z-50 border-b border-[var(--line)] bg-white/90 backdrop-blur-xl transition-colors duration-200 dark:border-neutral-800 dark:bg-black/90">
       <div className="shell flex h-[62px] items-center justify-between gap-6">
         <Logo />
 
-        <nav className="hidden items-center gap-1 md:flex" aria-label="Primary navigation">
+        <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary navigation">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -129,57 +111,9 @@ export function Navbar() {
             </Link>
           ))}
 
-          <div className="relative" ref={dropdownRef}>
-            <button
-              onClick={() => setDropdownOpen(!dropdownOpen)}
-              onMouseEnter={() => setDropdownOpen(true)}
-              className={`flex items-center gap-1 rounded-lg px-3 py-2 text-sm no-underline transition hover:bg-[#f6f6f6] hover:text-ink dark:hover:bg-neutral-900 dark:hover:text-white ${
-                isAboutActive || dropdownOpen ? 'bg-[#f6f6f6] dark:bg-neutral-900 font-semibold text-ink dark:text-white' : 'text-[#555] dark:text-neutral-400'
-              }`}
-            >
-              About
-              <svg
-                className={`h-4 w-4 transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`}
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth="2.5"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-
-            {dropdownOpen && (
-              <div
-                className="absolute left-1/2 top-full z-50 mt-1 w-72 -translate-x-1/2 rounded-xl border border-[var(--line)] bg-white p-3 shadow-xl dark:border-neutral-800 dark:bg-neutral-950 animate-in fade-in slide-in-from-top-2 duration-200"
-                onMouseLeave={() => setDropdownOpen(false)}
-              >
-                <div className="flex flex-col gap-1">
-                  {aboutLinks.map((subLink) => (
-                    <Link
-                      key={subLink.href}
-                      href={subLink.href}
-                      className={`group rounded-lg p-2.5 text-left no-underline transition hover:bg-[#f6f6f6] dark:hover:bg-neutral-900 ${
-                        isActive(subLink.href) ? 'bg-[#f6f6f6] dark:bg-neutral-900' : ''
-                      }`}
-                    >
-                      <div className={`text-sm font-semibold transition group-hover:text-accent ${
-                        isActive(subLink.href) ? 'text-accent' : 'text-ink dark:text-neutral-200'
-                      }`}>
-                        {subLink.label}
-                      </div>
-                      <p className="mt-0.5 text-xs text-[#777] dark:text-neutral-500 leading-relaxed">
-                        {subLink.desc}
-                      </p>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
         </nav>
 
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden items-center gap-3 lg:flex">
           <button
             onClick={toggleTheme}
             className="rounded-lg p-2 text-[#555] hover:bg-[#f6f6f6] hover:text-ink dark:text-neutral-400 dark:hover:bg-neutral-900 dark:hover:text-white transition"
@@ -332,7 +266,7 @@ export function Navbar() {
 
         </div>
 
-        <div className="flex items-center gap-1.5 md:hidden">
+        <div className="flex items-center gap-1.5 lg:hidden">
           <button
             onClick={toggleTheme}
             className="rounded-lg p-2 text-[#555] hover:bg-[#f6f6f6] hover:text-ink dark:text-neutral-400 dark:hover:bg-neutral-900 dark:hover:text-white transition"
@@ -397,7 +331,7 @@ export function Navbar() {
       </div>
 
       {mobileMenuOpen && (
-        <div className="border-t border-[var(--line)] bg-white py-4 shadow-inner dark:border-neutral-800 dark:bg-neutral-950 md:hidden animate-in fade-in slide-in-from-top-4 duration-200">
+        <div className="border-t border-[var(--line)] bg-white py-4 shadow-inner dark:border-neutral-800 dark:bg-neutral-950 lg:hidden animate-in fade-in slide-in-from-top-4 duration-200">
           <div className="shell flex flex-col gap-2">
             {navLinks.map((link) => (
               <Link
@@ -410,42 +344,6 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
-
-            <div className="flex flex-col">
-              <button
-                onClick={() => setMobileAboutOpen(!mobileAboutOpen)}
-                className={`flex items-center justify-between rounded-lg px-3 py-2.5 text-base no-underline transition hover:bg-[#f6f6f6] hover:text-ink dark:hover:bg-neutral-900 dark:hover:text-white ${
-                  isAboutActive ? 'font-semibold text-ink dark:text-white' : 'text-[#555] dark:text-neutral-400'
-                }`}
-              >
-                <span>About</span>
-                <svg
-                  className={`h-5 w-5 transition-transform duration-200 ${mobileAboutOpen ? 'rotate-180' : ''}`}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-
-              {mobileAboutOpen && (
-                <div className="ml-4 flex flex-col gap-1 border-l border-[var(--line)] dark:border-neutral-800 pl-3 mt-1">
-                  {aboutLinks.map((subLink) => (
-                    <Link
-                      key={subLink.href}
-                      href={subLink.href}
-                      className={`rounded-lg px-3 py-2 text-sm no-underline transition hover:bg-[#f6f6f6] dark:hover:bg-neutral-900 ${
-                        isActive(subLink.href) ? 'bg-[#f6f6f6] dark:bg-neutral-900 font-semibold text-accent' : 'text-[#666] dark:text-neutral-400'
-                      }`}
-                    >
-                      {subLink.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
 
             <div className="my-2 border-t border-[var(--line)] dark:border-neutral-800" />
 
