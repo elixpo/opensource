@@ -40,6 +40,7 @@ const footerSections: FooterSection[] = [
       },
       { name: 'License', href: '/LICENSE' },
       { name: 'FAQ', href: '/faq' },
+      { name: 'Code of Conduct', href: '/code-of-conduct' },
     ],
   },
   {
@@ -51,11 +52,7 @@ const footerSections: FooterSection[] = [
         href: 'https://discord.gg/elixpo',
         external: true,
       },
-      {
-        name: 'Sponsors',
-        href: 'https://github.com/sponsors/Circuit-Overtime',
-        external: true,
-      },
+      { name: 'Sponsors', href: '/sponsors' },
       { name: 'Events', href: '/events' },
       { name: 'Discussion Hub', href: '/discussion' },
     ],
@@ -64,7 +61,8 @@ const footerSections: FooterSection[] = [
     id: 'footer-company',
     title: 'Company',
     links: [
-      { name: 'About', href: '/about' },
+      { name: 'About Us', href: '/about' },
+      { name: 'Timeline', href: '/timeline' },
       { name: 'Main Site', href: 'https://elixpo.com', external: true },
       {
         name: 'Contact Email',
