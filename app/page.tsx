@@ -70,28 +70,24 @@ export default function Home() {
       <section className="relative overflow-hidden pb-20 pt-20 md:pb-28 md:pt-28">
         <div className="hero-grid absolute inset-0 -z-10" />
         <div className="shell text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent-soft px-3 py-1.5 text-[11px] font-bold uppercase tracking-[.09em] text-accent">
-            <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-            Built for open-source operators
-          </div>
           <h1 className="mx-auto mt-7 max-w-5xl text-[clamp(2.8rem,7vw,6.3rem)] font-black leading-[.94] tracking-[-.055em]">
-            Run open source.
+            Run developer contests.
             <br />
             <span className="font-bold italic text-[#888] dark:text-neutral-400">
-              Skip the busywork.
+              Skip the spreadsheets.
             </span>
           </h1>
           <p className="mx-auto mt-7 max-w-2xl text-[1.05rem] leading-7 text-[#555] dark:text-neutral-300 md:text-lg">
-            Launch a complete 1–2 month open-source contest with Elixpo Login,
-            GitHub tracking, co-hosts, project admins, mentors, campus
-            ambassadors, contributors, leaderboards, and payouts.
+            Launch contributor programs, hackathons, and mentorship circles from
+            one workspace. Sync GitHub repos, score work by labels, manage
+            mentors, track leaderboards, and handle audit-ready payouts.
           </p>
           <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Link href="/host" className="button-primary">
-              Open the host panel <Arrow />
+            <Link href="/host/contests/new" className="button-primary">
+              Create a contest <Arrow />
             </Link>
-            <Link href="/host/contests/new" className="button-secondary">
-              Create a contest
+            <Link href="/host#contests" className="button-secondary">
+              View contests
             </Link>
           </div>
           <p className="mt-4 font-mono text-[10px] uppercase tracking-wider text-[#999] dark:text-neutral-400">

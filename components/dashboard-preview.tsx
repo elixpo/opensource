@@ -25,8 +25,8 @@ export function DashboardPreview() {
           opensource.elixpo.com / workspace
         </span>
       </div>
-      <div className="grid min-h-[380px] grid-cols-[64px_1fr] sm:grid-cols-[170px_1fr]">
-        <aside className="border-r border-[var(--line)] bg-[#fafafa] dark:bg-neutral-900 p-3">
+      <div className="grid min-h-[380px] grid-cols-1 sm:grid-cols-[170px_1fr]">
+        <aside className="hidden border-r border-[var(--line)] bg-[#fafafa] dark:bg-neutral-900 p-3 sm:block">
           <div className="mb-5 flex h-8 w-8 items-center justify-center rounded-lg bg-ink dark:bg-white text-xs font-black text-white dark:text-ink">
             O
           </div>
