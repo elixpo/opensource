@@ -70,10 +70,6 @@ export default function Home() {
       <section className="relative overflow-hidden pb-20 pt-20 md:pb-28 md:pt-28">
         <div className="hero-grid absolute inset-0 -z-10" />
         <div className="shell text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent-soft px-3 py-1.5 text-[11px] font-bold uppercase tracking-[.09em] text-accent">
-            <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-            The Open Source Operating System
-          </div>
           <h1 className="mx-auto mt-7 max-w-5xl text-[clamp(2.8rem,7vw,6.3rem)] font-black leading-[.94] tracking-[-.055em]">
             Run developer contests.
             <br />
