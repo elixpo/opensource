@@ -193,7 +193,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
+
       <section className="shell py-24 md:py-32">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
