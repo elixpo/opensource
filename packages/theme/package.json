@@ -1,7 +1,0 @@
-{
-  "name": "@elixpo/theme",
-  "version": "1.0.0",
-  "description": "Shared Elixpo design tokens and theme",
-  "main": "index.js",
-  "private": true
-}
