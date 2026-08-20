@@ -1,7 +1,7 @@
 'use client';
 
-import { use, useState } from 'react';
 import Link from 'next/link';
+import { use, useState } from 'react';
 import { Footer } from '@/components/footer';
 import { GitBranch, Shield, Users } from '@/components/icons';
 import { Navbar } from '@/components/navbar';

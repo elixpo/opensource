@@ -74,5 +74,5 @@ export const mockDiscussions: Discussion[] = [
     updatedAt: '1d ago',
     commentCount: 8,
     status: 'Open',
-  }
+  },
 ];

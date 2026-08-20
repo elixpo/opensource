@@ -100,7 +100,6 @@ export function Navbar() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: pathname triggers this reset on route change even though it isn't read in the body
   useEffect(() => {
     setNotificationsOpen(false);
     setAvatarMenuOpen(false);

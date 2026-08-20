@@ -2,8 +2,6 @@ import { Footer } from '@/components/footer';
 import { Navbar } from '@/components/navbar';
 import { events } from '@/lib/data/events';
 
-
-
 export default function Events() {
   return (
     <main className="min-h-screen flex flex-col justify-between">
