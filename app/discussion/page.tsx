@@ -4,7 +4,6 @@ import { mockDiscussions } from '@/lib/data/discussions';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { Select } from '@/components/ui/Select';
-import { WorkspaceShell } from '@/components/shell/WorkspaceShell';
 
 export default function Discussion() {
   return (
@@ -12,7 +11,16 @@ export default function Discussion() {
       <div>
         <Navbar />
         
-        <WorkspaceShell title="Discussions" description="Project conversations, ideas, and help">
+        <section className="shell py-16 md:py-24">
+          <div className="mb-10">
+            <h1 className="text-4xl font-black tracking-tight text-ink dark:text-neutral-100 md:text-5xl">
+              Discussions
+            </h1>
+            <p className="mt-4 text-base text-[#666] dark:text-neutral-400 max-w-2xl">
+              Project conversations, ideas, and help.
+            </p>
+          </div>
+
           <div className="flex flex-col gap-6 md:flex-row md:items-center justify-between mb-8">
             <div className="flex flex-wrap items-center gap-3 w-full md:w-auto flex-1">
               <Input
@@ -112,7 +120,7 @@ export default function Discussion() {
               </div>
             ))}
           </div>
-        </WorkspaceShell>
+        </section>
       </div>
       <Footer />
     </main>
