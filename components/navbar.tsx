@@ -620,16 +620,16 @@ export function Navbar() {
                 </button>
               </div>
             ) : (
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-2 pt-1">
                 <Link
                   href="/login"
-                  className="rounded-lg px-3 py-2.5 text-base no-underline text-[#555] dark:text-neutral-400 hover:bg-[#f6f6f6] dark:hover:bg-neutral-900"
+                  className="rounded-lg px-3 py-2.5 text-base no-underline text-[#555] dark:text-neutral-400 hover:bg-[#f6f6f6] dark:hover:bg-neutral-900 transition"
                 >
                   Login
                 </Link>
                 <Link
                   href="/register"
-                  className="whitespace-nowrap rounded-full bg-zinc-900 px-4 py-2 text-sm font-bold text-white no-underline shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
+                  className="flex w-full items-center justify-center rounded-full bg-zinc-900 px-4 py-3 text-sm font-bold text-white no-underline shadow-sm transition-all duration-200 hover:bg-zinc-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-900 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200 dark:focus-visible:outline-zinc-100 min-h-[44px]"
                 >
                   Join Now
                 </Link>

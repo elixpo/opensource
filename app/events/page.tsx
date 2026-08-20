@@ -1,35 +1,8 @@
 import { Footer } from '@/components/footer';
 import { Navbar } from '@/components/navbar';
+import { events } from '@/lib/data/events';
 
-const events = [
-  {
-    title: 'Elixpo Open Source Sprint 2026',
-    date: 'Aug 25 - Aug 28, 2026',
-    time: '14:00 UTC',
-    type: 'Contribution Sprint',
-    status: 'Upcoming',
-    location: 'Discord Virtual Hub',
-    desc: 'Join hundreds of developers worldwide for a 3-day sprint to improve the core workflows of Elixpo. Earn double points and limited-edition badges.',
-  },
-  {
-    title: 'August Community Town Hall',
-    date: 'Aug 12, 2026',
-    time: '17:00 UTC',
-    type: 'Community Sync',
-    status: 'Upcoming',
-    location: 'Google Meet',
-    desc: 'An open session discussing the new roadmap, governance structures, and checking in on current active leaderboard sprints.',
-  },
-  {
-    title: 'Next.js 15 & Cloudflare Workers Workshop',
-    date: 'Jul 20, 2026',
-    time: '15:00 UTC',
-    type: 'Workshop',
-    status: 'Completed',
-    location: 'YouTube Live',
-    desc: 'An deep dive into building ultra-fast edge rendered Next.js applications deployed globally on Cloudflare Workers.',
-  },
-];
+
 
 export default function Events() {
   return (
