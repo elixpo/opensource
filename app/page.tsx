@@ -11,6 +11,7 @@ import {
   Users,
 } from '@/components/icons';
 import { Navbar } from '@/components/navbar';
+import { trendingEvents } from '@/lib/data/events';
 
 const features = [
   {
@@ -192,6 +193,89 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <section className="shell py-24 md:py-32">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div>
+            <p className="eyebrow">Top trending events</p>
+            <h2 className="mt-3 text-3xl font-black tracking-[-.04em] md:text-4xl">
+              Learn from the community
+            </h2>
+          </div>
+          <Link
+            href="/events"
+            className="button-secondary whitespace-nowrap self-start md:self-auto"
+          >
+            View full schedule
+          </Link>
+        </div>
+
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
+          {trendingEvents.map((event) => (
+            <div
+              key={event.title}
+              className="surface flex flex-col p-6 hover:border-[#bbb] dark:hover:border-neutral-700 transition"
+            >
+              <div className="flex flex-wrap items-center gap-2 mb-4">
+                <span className="font-mono text-[10px] font-bold text-accent uppercase tracking-wider">
+                  {event.type}
+                </span>
+                <span className="rounded-full bg-green-100 px-2 py-0.5 text-[9px] font-bold text-green-800 dark:bg-emerald-950/40 dark:text-emerald-400">
+                  {event.status}
+                </span>
+              </div>
+              <h3 className="text-lg font-bold text-ink dark:text-neutral-100 flex-1">
+                {event.title}
+              </h3>
+              <div className="mt-5 flex flex-col gap-2 text-xs font-mono text-[#555] dark:text-neutral-400">
+                <span className="flex items-center gap-1.5">
+                  <svg
+                    className="h-3.5 w-3.5 text-accent shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                    />
+                  </svg>
+                  <span className="truncate">{event.date}</span>
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <svg
+                    className="h-3.5 w-3.5 text-accent shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                    />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                    />
+                  </svg>
+                  <span className="truncate">{event.location}</span>
+                </span>
+              </div>
+              <div className="mt-6">
+                <button className="button-primary w-full text-xs py-2">
+                  Register
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <Footer />
     </main>
   );
