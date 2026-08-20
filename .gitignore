@@ -12,3 +12,11 @@ dist/
 .DS_Store
 .vscode/
 .idea/
+
+# Sibling Elixpo repos (not part of opensource.elixpo)
+accounts.elixpo/
+chat.elixpo/
+chat.elixpo.worktrees/
+elixpochat/
+lixsearch/
+packages/theme/
